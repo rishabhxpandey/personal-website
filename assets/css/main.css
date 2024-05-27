@@ -3895,13 +3895,11 @@ input, select, textarea {
 	}
 
 	#education {
-		/* padding: 20px 40px; */
 		margin-top: 20px;
 	}
 	
 	.education-grid {
 		display: grid;
-		grid-template-columns: 3fr 1fr; /* Adjust the ratio according to the size of the logo */
 		align-items: start;
 	}
 	
@@ -3934,7 +3932,73 @@ input, select, textarea {
 		padding-left: 15px;
 	}
 
-	/* Professional Experience Section */
+	.education-section {
+		padding: 20px;
+		color: #ffffff;
+		font-family: "Source Sans Pro", Helvetica, sans-serif;
+
+		background-color: #559d95;
+		border-radius: 10px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		padding: 20px;
+		padding-top: 30px;
+		max-width: 800px;
+		text-align: center;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	  }
+
+	.education-section:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+	}
+
+	.degree-info {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+	}
+	
+	.purdue-logo {
+	width: 100px;
+	margin-right: 20px;
+	transform: scaleX(-1);
+	}
+	
+	.degree-details {
+	flex-grow: 1;
+	}
+	
+	.degree-details h3, .degree-details p {
+	margin: 0;
+	padding: 0;
+	color: #171515;
+	}
+
+	.education-section h3 {
+	color: #000000;
+	}
+	
+	.coursework {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 10px;
+	}
+	
+	.coursework li {
+	list-style: none;
+	margin-bottom: 10px;
+	color: #171515;
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	}
+	
+	.coursework li:before {
+	content: '•';
+	color: #171515;
+	margin-right: 5px;
+	
+	}
+
+/* Professional Experience Section */
 .experience-grid {
     display: flex;
     flex-wrap: wrap;
