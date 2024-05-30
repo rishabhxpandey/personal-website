@@ -3782,6 +3782,24 @@
         }
     }
     
+    @media screen and (max-width: 1152px) {
+        #navbar {
+            display: none;
+        }
+        .image.fill img {
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+        #skills .skills-grid {
+            padding-top: 40px;
+            margin-left: 0px;
+            max-width: 100%;
+        }
+    }
+    
     .tech-stack {
         display: flex;
         flex-wrap: wrap;
