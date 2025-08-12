@@ -1,245 +1,433 @@
-<!DOCTYPE HTML>
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-    <title>🌐 Rishabh Pandey</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="description" content="Welcome to the personal website of Rishabh Pandey, a software engineer and Purdue University Computer Science graduate. Explore my portfolio, work experience, projects, and skills. Connect with me to learn how I can contribute to your organization's tech initiatives." />
-    <meta name="keywords" content="Rishabh Pandey Purdue CS Software Engineering Geico Texas Instruments Akpsi" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=6">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🌐 Rishabh Pandey</title>
+  <meta name="description" content="Welcome to the personal website of Rishabh Pandey, a software engineer and Purdue University Computer Science graduate. Explore my portfolio, work experience, projects, and skills." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            base: '#0A0B0F'
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .bg-glow {
+        background: radial-gradient(circle at center, rgba(99,102,241,0.4), transparent 70%);
+      }
+      .glass {
+        @apply backdrop-blur-md bg-white/5 border border-white/10 rounded-xl shadow-lg shadow-black/20;
+      }
+      .hairline { outline: 1px solid rgba(255,255,255,0.1); outline-offset: -1px; }
+      .chip {
+        @apply inline-flex items-center rounded-full bg-white/5 border border-white/10 px-3 py-1 text-xs text-gray-300;
+      }
+      .btn-pill { @apply rounded-full px-6 py-3 font-medium transition relative overflow-hidden; }
+      .btn-pill.primary { @apply bg-indigo-500/20 text-indigo-300 hover:text-white hover:bg-gradient-to-r hover:from-indigo-500 hover:to-violet-500; }
+      .btn-pill.secondary { @apply border border-white/20 text-gray-300 hover:bg-white/10; }
+      .reveal { opacity:0; transform:translateY(1rem); }
+      .reveal-visible { opacity:1; transform:none; transition:all 0.6s ease; }
+      .link-slide { @apply relative after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-0 after:bg-gradient-to-r after:from-indigo-400 after:to-violet-500 after:transition-all hover:after:w-full focus-visible:after:w-full; }
+      .dot { @apply w-1 h-1 rounded-full bg-white/40; }
+      .ring-glow { box-shadow:0 0 0 4px rgba(99,102,241,0.3); }
+      .gradient-border { position:relative; }
+      .gradient-border::before { content:""; position:absolute; inset:-1px; padding:1px; border-radius:inherit; background:linear-gradient(45deg,#6366F1,#A855F7,#3B82F6); -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; }
+      @keyframes marquee { to { transform: translateX(-50%); } }
+      .marquee { animation: marquee 20s linear infinite; }
+    }
+    @media (prefers-reduced-motion:reduce){ .reveal-visible{transition:none;} .marquee{animation:none;} }
+  </style>
 </head>
-
-<body class="is-preload">
-    <nav id="navbar">
-        <div class="nav-links">
-            <a href="#about-me">About</a>
-            <a href="#education">Education</a>
-            <a href="#professional">Work Exp.</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
-        </div>
-    </nav>
-
-    <div id="wrapper">
-        <!-- Section -->
-        <section class="intro">
-            <header>
-                <h1>👋 Hi! I'm Rishabh</h1>
-                <p>Software Engineer @ GEICO</p>
-                <ul class="icons">
-                    <li><a href="https://www.linkedin.com/in/pandey-rishabh/" class="icon brands fa-linkedin-in" target="_blank" rel="noopener noreferrer" aria-label="goto linkedin"><span class="label">LinkedIn</span></a></li>
-                    <li><a href="https://github.com/rishabhxpandey/" class="icon brands fa-github" target="_blank" rel="noopener noreferrer" aria-label="goto github"><span class="label">GitHub</span></a></li>
-                    <li><a href="https://x.com/rishabhxpandey" class="icon brands" target="_blank" rel="noopener noreferrer" aria-label="goto x"><img src="images/x-logo.svg" alt="X logo" /><span class="label">X</span></a></li>
-                    <li><a href="https://www.instagram.com/rishabhxpandey/" target="_blank" rel="noopener noreferrer" class="icon brands fa-instagram" aria-label="goto instagram"><span class="label">Instagram</span></a></li>
-                    <li><a href="https://open.spotify.com/user/pandeyrishabh0403" class="icon brands fa-spotify" target="_blank" rel="noopener noreferrer" aria-label="goto spotify"><span class="label">Spotify</span></a></li>
-                    <li><a href="mailto:email.rishabhp@gmail.com" class="icon brands fa-google" target="_blank" rel="noopener noreferrer" aria-label="goto email"><span class="label">Gmail</span></a></li>
-                </ul>
-                <ul class="actions">
-                    <li><a href="#about-me" class="arrow scrolly" aria-label="scroll downnn"><span class="label">Next</span></a></li>
-                </ul>
-            </header>
-            <div class="content">
-                <span class="image fill" data-position="center"><img src="images/headshot2.webp" alt="Picture of me!" /></span>
-            </div>
-        </section>
-
-        <!-- Section -->
-        <section id="about-me">
-            <header>
-                <h2>About Me!</h2>
-            </header>
-            <div class="content">
-                <p>Software engineer with a passion for building cloud-native services and AI-driven applications. I’m pursuing a B.S. in Computer Science at Purdue University (Dec 2024) and currently work at GEICO, where I build scalable contact center technology on AWS. I enjoy tackling real-world problems across industries and collaborating on impactful projects.</p>
-            </div>
-        </section>
-
-        <!-- Section -->
-        <section id="education">
-            <header>
-                <h2>Education</h2>
-            </header>
-            <div class="content">
-                <div class="content">
-                    <div class="experience-grid">
-                        <div class="education-section">
-                            <div class="education-content">
-                                <div class="degree-info">
-                                    <img src="images/purdue.webp" alt="Purdue University Logo" class="purdue-logo">
-                                    <div class="degree-details">
-                                        <h3>PURDUE UNIVERSITY</h3>
-                                        <p>B.S. in Computer Science<br>Expected Graduation: December 2024</p>
-                                    </div>
-                                </div>
-                                <h3>Relevant Coursework</h3>
-                                <ul class="coursework">
-                                    <li>Operating Systems</li>
-                                    <li>Computer Networks</li>
-                                    <li>Database Systems</li>
-                                    <li>Cloud Computing</li>
-                                    <li>AI/ML</li>
-                                </ul>
-                                <h3>Activities &amp; Societies</h3>
-                                <ul class="coursework">
-                                    <li>Alpha Kappa Psi</li>
-                                    <li>ML@Purdue</li>
-                                    <li>PurdueTHINK</li>
-                                    <li>Intramural Soccer</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section -->
-        <section id="professional">
-            <header>
-                <h2>Work Experience</h2>
-            </header>
-            <div class="content">
-                <div class="content">
-                    <div class="experience-grid">
-                        <div class="experience-box">
-                            <img src="images/geico.webp" alt="Geico Logo" class="experience-logo">
-                            <h3>Software Engineer</h3>
-                            <h3>@ GEICO</h3>
-                            <p><strong>Jan 2025 – Present</strong></p>
-                            <ul>
-                                <li>Built Python AWS Lambda services to normalize contact events, batch-write to DynamoDB, and fan-out via EventBridge with DLQs/backoff—processing ~350–500 events/min avg.</li>
-                                <li>Shipped Amazon Connect queue observability scanning ~800–900 queues, cutting runtime ~120s → ~10s and adding a DynamoDB "ignore list" to suppress noise.</li>
-                                <li>Refactored Terraform modules with least-privilege IAM and standardized alarms, DLQs, and structured logging.</li>
-                                <li>Achieved ~90% PyTest coverage and standardized JSON logging and runbooks.</li>
-                                <li>Participated in AI Hackathon: developed a RAG agent mapping natural-language intents to policy updates for a customer.</li>
-                            </ul>
-                        </div>
-                        <div class="experience-box">
-                            <img src="images/geico.webp" alt="Geico Logo" class="experience-logo">
-                            <h3>Software Development Intern</h3>
-                            <h3>@ GEICO</h3>
-                            <p><strong>Jun 2024 – Aug 2024</strong></p>
-                            <ul>
-                                <li>Deployed JupyterHub on AKS with Azure AD SSO/RBAC and Spark + ADLS, onboarding 20+ users and contributing to ~25% Snowflake cost reduction (~$3M/yr).</li>
-                                <li>Published custom Jupyter magics for one-click data access and enforced quotas/autoscaling to stabilize peak loads.</li>
-                            </ul>
-                        </div>
-                        <div class="experience-box">
-                            <img src="images/TI.webp" alt="Texas Instruments Logo" class="experience-logo">
-                            <h3>Software Engineering Intern</h3>
-                            <h3>@ Texas Instruments</h3>
-                            <p><strong>May 2023 – Aug 2023</strong></p>
-                            <ul>
-                                <li>Shipped Oracle APEX+PL/SQL app integrating 10Duke REST API; reduced license lookup from 4–6 hrs to ~3–5 sec across 250+ products and added audit logs and archival automation.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section -->
-        <section id="projects">
-            <header>
-                <h2>Projects</h2>
-            </header>
-            <div class="content">
-                <div class="content">
-                    <div class="experience-grid">
-                        <div class="experience-box">
-                            <h3> LinkedIn Interview Agent</h3>
-                            <p>Agentic interview platform: Job description and resume ingestion, semantic skill mapping (FAISS), adaptive question generation, and structured logging for latency and cost metrics.</p>
-                            <a href="https://github.com/rishabhxpandey/lnkd_apb" class="link-icon" target="_blank" aria-label="repo link">
-                                <i class="icon brands fa-github"></i>
-                            </a>
-                            <ul class="tech-stack">
-                                <li class="tech-stack-item">FastAPI</li>
-                                <li class="tech-stack-item">React</li>
-                                <li class="tech-stack-item">GPT-4o</li>
-                                <li class="tech-stack-item">FAISS</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section -->
-        <section id="skills">
-            <header>
-                <h2>Skills</h2>
-            </header>
-            <div class="content">
-                <div class="skills-grid">
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="python" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="java" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="c" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg" alt="go" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="typescript" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="aws" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" alt="azure" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" alt="gcp" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="docker" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain.svg" alt="kubernetes" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg" alt="terraform" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="git" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="github" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="linux" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="postgresql" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg" alt="redis" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg" alt="fastapi" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" alt="scikit-learn" />
-                    </div>
-                </div>
-            </div>
-        </section>
+<body class="bg-base text-gray-200 font-sans antialiased">
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-black/40 border-b border-white/10">
+  <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+    <a href="#hero" class="text-xl font-bold text-white focus-visible:ring-2 ring-indigo-500 rounded">RP</a>
+    <button id="menu-btn" class="md:hidden text-gray-300 focus-visible:ring-2 ring-indigo-500 rounded" aria-label="Toggle menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <ul class="hidden md:flex space-x-8 text-sm">
+      <li><a href="#about" class="nav-link link-slide focus-visible:ring-2 ring-indigo-500 rounded">About</a></li>
+      <li><a href="#experience" class="nav-link link-slide focus-visible:ring-2 ring-indigo-500 rounded">Experience</a></li>
+      <li><a href="#projects" class="nav-link link-slide focus-visible:ring-2 ring-indigo-500 rounded">Projects</a></li>
+      <li><a href="#skills" class="nav-link link-slide focus-visible:ring-2 ring-indigo-500 rounded">Skills</a></li>
+      <li><a href="#education" class="nav-link link-slide focus-visible:ring-2 ring-indigo-500 rounded">Education</a></li>
+      <li><a href="assets/resume.pdf" class="nav-link link-slide focus-visible:ring-2 ring-indigo-500 rounded">Resume</a></li>
+    </ul>
+  </nav>
+  <div id="mobile-menu" class="md:hidden hidden px-6 pb-4">
+    <ul class="flex flex-col space-y-2 text-sm">
+      <li><a href="#about" class="nav-link block py-2 link-slide">About</a></li>
+      <li><a href="#experience" class="nav-link block py-2 link-slide">Experience</a></li>
+      <li><a href="#projects" class="nav-link block py-2 link-slide">Projects</a></li>
+      <li><a href="#skills" class="nav-link block py-2 link-slide">Skills</a></li>
+      <li><a href="#education" class="nav-link block py-2 link-slide">Education</a></li>
+      <li><a href="assets/resume.pdf" class="nav-link block py-2 link-slide">Resume</a></li>
+    </ul>
+  </div>
+</header>
+<main class="pt-24">
+  <section id="hero" class="section relative min-h-screen flex items-center">
+    <div class="absolute inset-0 -z-10 overflow-hidden">
+      <div id="hero-blob" class="absolute top-1/2 left-1/2 w-[60vw] h-[60vw] -translate-x-1/2 -translate-y-1/2 rounded-full bg-glow blur-3xl mix-blend-screen"></div>
+      <svg class="absolute inset-0 w-full h-full opacity-20 text-white/5" aria-hidden="true">
+        <defs>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M40 0H0V40" fill="none" stroke="currentColor" stroke-width="0.5" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid)"></rect>
+      </svg>
     </div>
-
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    <div class="max-w-7xl mx-auto px-6 py-24 md:py-32 grid md:grid-cols-2 gap-16 items-center">
+      <div class="space-y-6 reveal">
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">Hi, I'm Rishabh — I build things for the web and AI.</h1>
+        <p class="text-lg text-gray-300">Software Engineer @ GEICO</p>
+        <div class="flex flex-wrap gap-4">
+          <a href="assets/resume.pdf" id="resume-copy" class="btn-pill primary">View Resume</a>
+          <a href="mailto:email.rishabhp@gmail.com" class="btn-pill secondary">Email Me</a>
+        </div>
+        <div class="flex flex-wrap gap-2 pt-4">
+          <span class="chip">📍 Washington DC</span>
+          <span class="chip">Backend &amp; AI</span>
+          <span class="chip">3+ yrs</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="badges" class="py-8 border-t border-white/10">
+    <div class="overflow-hidden whitespace-nowrap">
+      <ul class="flex items-center marquee space-x-8 text-sm text-gray-400 uppercase tracking-wider">
+        <li>GEICO</li>
+        <li>Texas Instruments</li>
+        <li>Purdue</li>
+        <li>AWS</li>
+        <li>Azure</li>
+        <li>Python</li>
+        <li>Go</li>
+        <li>Terraform</li>
+        <li>Kubernetes</li>
+      </ul>
+    </div>
+  </section>
+  <section id="services" class="section py-24 reveal">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-12">What I do</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="glass p-6 tilt">
+          <svg class="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 21h8M12 17v4m0-4a8 8 0 100-16 8 8 0 000 16z"/></svg>
+          <h3 class="mt-4 font-semibold">Backend &amp; APIs</h3>
+          <p class="text-sm text-gray-300">Designing scalable services and RESTful APIs.</p>
+        </div>
+        <div class="glass p-6 tilt">
+          <svg class="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h18v4H3zM3 10h18v4H3zM3 17h18v4H3z"/></svg>
+          <h3 class="mt-4 font-semibold">Data/ETL</h3>
+          <p class="text-sm text-gray-300">Moving and shaping data with reliability.</p>
+        </div>
+        <div class="glass p-6 tilt">
+          <svg class="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          <h3 class="mt-4 font-semibold">Cloud/Infra</h3>
+          <p class="text-sm text-gray-300">Shipping on AWS, Azure, and beyond.</p>
+        </div>
+        <div class="glass p-6 tilt">
+          <svg class="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          <h3 class="mt-4 font-semibold">SRE/PE</h3>
+          <p class="text-sm text-gray-300">Reliability and performance engineering.</p>
+        </div>
+        <div class="glass p-6 tilt">
+          <svg class="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+          <h3 class="mt-4 font-semibold">AI/RAG</h3>
+          <p class="text-sm text-gray-300">Retrieval-augmented generation systems.</p>
+        </div>
+        <div class="glass p-6 tilt">
+          <svg class="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9 9 0 1021 12h-9V3.055z"/></svg>
+          <h3 class="mt-4 font-semibold">Analytics</h3>
+          <p class="text-sm text-gray-300">Turning metrics into insight.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="about" class="section py-24 reveal">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-6">About</h2>
+      <p class="text-gray-300 leading-tight">Software engineer with a passion for building cloud-native services and AI-driven applications. I’m pursuing a B.S. in Computer Science at Purdue University (Dec 2024) and currently work at GEICO, where I build scalable contact center technology on AWS. I enjoy tackling real-world problems across industries and collaborating on impactful projects.</p>
+    </div>
+  </section>
+  <section id="experience" class="section py-24 reveal">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-12">Experience</h2>
+      <div class="relative border-l border-white/10 pl-8 space-y-12">
+        <article class="relative">
+          <div class="absolute -left-4 top-2 w-3 h-3 rounded-full bg-indigo-400"></div>
+          <div class="glass p-6 tilt">
+            <div class="flex justify-between flex-wrap gap-2">
+              <h3 class="font-semibold">Software Engineer · GEICO</h3>
+              <span class="text-sm">Jan 2025 – Present</span>
+            </div>
+            <p class="mt-2 text-sm text-gray-300">Built contact center services on AWS.</p>
+            <ul class="mt-4 list-disc list-inside space-y-1 text-sm text-gray-300">
+              <li>Built Python AWS Lambda services to normalize contact events, batch-write to DynamoDB, and fan-out via EventBridge with DLQs/backoff—processing ~350–500 events/min avg.</li>
+              <li>Shipped Amazon Connect queue observability scanning ~800–900 queues, cutting runtime ~120s → ~10s and adding a DynamoDB "ignore list" to suppress noise.</li>
+              <li>Refactored Terraform modules with least-privilege IAM and standardized alarms, DLQs, and structured logging.</li>
+            </ul>
+            <button data-accordion="exp1" class="more mt-4 flex items-center text-sm text-indigo-400">More details<svg class="w-4 h-4 ml-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></button>
+            <ul id="exp1" class="extra hidden mt-2 list-disc list-inside space-y-1 text-sm text-gray-300">
+              <li>Achieved ~90% PyTest coverage and standardized JSON logging and runbooks.</li>
+              <li>Participated in AI Hackathon: developed a RAG agent mapping natural-language intents to policy updates for a customer.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="relative">
+          <div class="absolute -left-4 top-2 w-3 h-3 rounded-full bg-indigo-400"></div>
+          <div class="glass p-6 tilt">
+            <div class="flex justify-between flex-wrap gap-2">
+              <h3 class="font-semibold">Software Development Intern · GEICO</h3>
+              <span class="text-sm">Jun 2024 – Aug 2024</span>
+            </div>
+            <ul class="mt-4 list-disc list-inside space-y-1 text-sm text-gray-300">
+              <li>Deployed JupyterHub on AKS with Azure AD SSO/RBAC and Spark + ADLS, onboarding 20+ users and contributing to ~25% Snowflake cost reduction (~$3M/yr).</li>
+              <li>Published custom Jupyter magics for one-click data access and enforced quotas/autoscaling to stabilize peak loads.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="relative">
+          <div class="absolute -left-4 top-2 w-3 h-3 rounded-full bg-indigo-400"></div>
+          <div class="glass p-6 tilt">
+            <div class="flex justify-between flex-wrap gap-2">
+              <h3 class="font-semibold">Software Engineering Intern · Texas Instruments</h3>
+              <span class="text-sm">May 2023 – Aug 2023</span>
+            </div>
+            <ul class="mt-4 list-disc list-inside space-y-1 text-sm text-gray-300">
+              <li>Shipped Oracle APEX+PL/SQL app integrating 10Duke REST API; reduced license lookup from 4–6 hrs to ~3–5 sec across 250+ products and added audit logs and archival automation.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section id="projects" class="section py-24 reveal">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-12">Projects</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="relative group tilt">
+          <div class="glass p-6 h-full flex flex-col justify-between">
+            <div>
+              <h3 class="font-semibold mb-2">LinkedIn Interview Agent</h3>
+              <p class="text-sm text-gray-300">Agentic interview platform: Job description and resume ingestion, semantic skill mapping (FAISS), adaptive question generation, and structured logging for latency and cost metrics.</p>
+            </div>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="chip">FastAPI</span>
+              <span class="chip">React</span>
+              <span class="chip">GPT-4o</span>
+              <span class="chip">FAISS</span>
+            </div>
+          </div>
+          <div class="absolute inset-0 rounded-xl bg-gradient-to-tr from-indigo-500/30 to-violet-500/30 opacity-0 group-hover:opacity-100 transition pointer-events-none"></div>
+          <div class="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition">
+            <a href="https://github.com/rishabhxpandey/lnkd_apb" class="btn-pill primary">Code</a>
+            <a href="#" class="btn-pill secondary">Demo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="skills" class="section py-24 reveal">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-12">Skills</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="font-semibold mb-4">Languages</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="chip">Python<span class="ml-1 flex gap-0.5"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></span>
+            <span class="chip">Java<span class="ml-1 flex gap-0.5"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></span>
+            <span class="chip">C<span class="ml-1 flex gap-0.5"><span class="dot"></span><span class="dot"></span></span></span>
+            <span class="chip">Go<span class="ml-1 flex gap-0.5"><span class="dot"></span><span class="dot"></span></span></span>
+            <span class="chip">TypeScript<span class="ml-1 flex gap-0.5"><span class="dot"></span><span class="dot"></span></span></span>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-4">Cloud &amp; Infra</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="chip">AWS<span class="ml-1 flex gap-0.5"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></span>
+            <span class="chip">Azure<span class="ml-1 flex gap-0.5"><span class="dot"></span><span class="dot"></span></span></span>
+            <span class="chip">GCP<span class="ml-1 flex gap-0.5"><span class="dot"></span><span class="dot"></span></span></span>
+            <span class="chip">Docker<span class="ml-1 flex gap-0.5"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></span>
+            <span class="chip">Kubernetes<span class="ml-1 flex gap-0.5"><span class="dot"></span><span class="dot"></span></span></span>
+            <span class="chip">Terraform<span class="ml-1 flex gap-0.5"><span class="dot"></span><span class="dot"></span></span></span>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-4">DevOps &amp; Tools</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="chip">Git<span class="ml-1 flex gap-0.5"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></span>
+            <span class="chip">GitHub<span class="ml-1 flex gap-0.5"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></span>
+            <span class="chip">Linux<span class="ml-1 flex gap-0.5"><span class="dot"></span><span class="dot"></span></span></span>
+            <span class="chip">PostgreSQL<span class="ml-1 flex gap-0.5"><span class="dot"></span><span class="dot"></span></span></span>
+            <span class="chip">Redis<span class="ml-1 flex gap-0.5"><span class="dot"></span><span class="dot"></span></span></span>
+            <span class="chip">FastAPI<span class="ml-1 flex gap-0.5"><span class="dot"></span><span class="dot"></span></span></span>
+            <span class="chip">scikit-learn<span class="ml-1 flex gap-0.5"><span class="dot"></span><span class="dot"></span></span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="education" class="section py-24 reveal">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-6">Education</h2>
+      <div class="glass p-6">
+        <h3 class="font-semibold">Purdue University</h3>
+        <p class="text-sm text-gray-300">B.S. in Computer Science · Expected Graduation: December 2024</p>
+        <p class="mt-4 text-sm text-gray-300"><span class="font-semibold">Relevant Coursework</span>: Operating Systems, Computer Networks, Database Systems, Cloud Computing, AI/ML</p>
+        <p class="mt-4 text-sm text-gray-300"><span class="font-semibold">Activities &amp; Societies</span>: Alpha Kappa Psi, ML@Purdue, PurdueTHINK, Intramural Soccer</p>
+      </div>
+    </div>
+  </section>
+  <section id="cta" class="section py-16 reveal">
+    <div class="max-w-4xl mx-auto px-6 text-center relative overflow-hidden">
+      <div class="absolute inset-0 bg-glow blur-3xl"></div>
+      <div class="relative glass p-8 gradient-border">
+        <h2 class="text-2xl font-bold mb-6">Interested in working together?</h2>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="mailto:email.rishabhp@gmail.com" class="btn-pill primary">Open to roles</a>
+          <a href="assets/resume.pdf" class="btn-pill secondary" id="resume-copy-cta">Download Resume</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="faq" class="section py-24 reveal">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-12">FAQ</h2>
+      <div class="space-y-4">
+        <div class="glass p-4">
+          <button class="w-full text-left flex justify-between items-center faq-toggle focus-visible:ring-2 ring-indigo-500 rounded">
+            <span>What roles are you looking for?</span>
+            <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <p class="mt-2 text-sm text-gray-300 hidden">Software engineering roles focusing on backend, cloud, and AI.</p>
+        </div>
+        <div class="glass p-4">
+          <button class="w-full text-left flex justify-between items-center faq-toggle focus-visible:ring-2 ring-indigo-500 rounded">
+            <span>When are you available?</span>
+            <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <p class="mt-2 text-sm text-gray-300 hidden">I'm available starting Jan 2025.</p>
+        </div>
+        <div class="glass p-4">
+          <button class="w-full text-left flex justify-between items-center faq-toggle focus-visible:ring-2 ring-indigo-500 rounded">
+            <span>Preferred stack?</span>
+            <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <p class="mt-2 text-sm text-gray-300 hidden">Python, Go, TypeScript, AWS, Terraform, Kubernetes.</p>
+        </div>
+        <div class="glass p-4">
+          <button class="w-full text-left flex justify-between items-center faq-toggle focus-visible:ring-2 ring-indigo-500 rounded">
+            <span>How to reach me?</span>
+            <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <p class="mt-2 text-sm text-gray-300 hidden">Email me or connect on LinkedIn.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-white/10 py-8">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between text-sm text-gray-400">
+    <div class="flex items-center gap-2">
+      <button id="email-copy" class="underline hover:text-white focus-visible:ring-2 ring-indigo-500 rounded">email.rishabhp@gmail.com</button>
+      <span id="copy-toast" class="ml-2 hidden text-indigo-400">Copied!</span>
+    </div>
+    <div class="flex gap-6 mt-4 md:mt-0">
+      <a href="https://www.linkedin.com/in/pandey-rishabh/" class="underline hover:text-white link-slide">LinkedIn</a>
+      <a href="https://github.com/rishabhxpandey" class="underline hover:text-white link-slide">GitHub</a>
+    </div>
+    <p class="mt-4 md:mt-0">&copy; <span id="year"></span> Rishabh Pandey</p>
+  </div>
+</footer>
+<script>
+const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const sections = document.querySelectorAll('main section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+const spy = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    const id = entry.target.getAttribute('id');
+    const link = document.querySelector(`.nav-link[href="#${id}"]`);
+    if(entry.isIntersecting){
+      navLinks.forEach(l=>l.classList.remove('text-indigo-400'));
+      link && link.classList.add('text-indigo-400');
+    }
+  });
+},{rootMargin:'0px 0px -60% 0px',threshold:0});
+sections.forEach(s=>spy.observe(s));
+if(!prefersReduced){
+  const revealEls=document.querySelectorAll('.reveal');
+  const revObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('reveal-visible');revObs.unobserve(e.target);}});
+  },{threshold:0.1});
+  revealEls.forEach(el=>revObs.observe(el));
+  document.querySelectorAll('.tilt').forEach(card=>{
+    card.addEventListener('pointermove',e=>{
+      const rect=card.getBoundingClientRect();
+      const x=e.clientX-rect.left-rect.width/2;
+      const y=e.clientY-rect.top-rect.height/2;
+      card.style.transform=`rotateY(${x/25}deg) rotateX(${-y/25}deg)`;
+    });
+    card.addEventListener('pointerleave',()=>{card.style.transform='';});
+  });
+  const blob=document.getElementById('hero-blob');
+  if(blob){
+    window.addEventListener('pointermove',e=>{
+      const x=(e.clientX/window.innerWidth-0.5)*40;
+      const y=(e.clientY/window.innerHeight-0.5)*40;
+      blob.style.transform=`translate(${x}px,${y}px)`;
+    });
+  }
+}
+document.querySelectorAll('[data-accordion]').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const target=document.getElementById(btn.dataset.accordion);
+    target.classList.toggle('hidden');
+    btn.querySelector('svg').classList.toggle('rotate-180');
+  });
+});
+document.querySelectorAll('.faq-toggle').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const p=btn.nextElementSibling;
+    p.classList.toggle('hidden');
+    btn.querySelector('svg').classList.toggle('rotate-180');
+  });
+});
+document.getElementById('menu-btn').addEventListener('click',()=>{
+  document.getElementById('mobile-menu').classList.toggle('hidden');
+});
+const emailBtn=document.getElementById('email-copy');
+const email='email.rishabhp@gmail.com';
+emailBtn.addEventListener('click',async()=>{
+  await navigator.clipboard.writeText(email);
+  const toast=document.getElementById('copy-toast');
+  toast.classList.remove('hidden');
+  setTimeout(()=>toast.classList.add('hidden'),2000);
+});
+const resumeLinks=['resume-copy','resume-copy-cta'];
+resumeLinks.forEach(id=>{
+  const el=document.getElementById(id);
+  if(el){
+    el.addEventListener('click',async()=>{
+      await navigator.clipboard.writeText(window.location.origin+'/assets/resume.pdf');
+    });
+  }
+});
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
 </body>
-
 </html>
