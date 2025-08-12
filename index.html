@@ -1,245 +1,240 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>🌐 Rishabh Pandey</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="description" content="Welcome to the personal website of Rishabh Pandey, a software engineer and Purdue University Computer Science graduate. Explore my portfolio, work experience, projects, and skills. Connect with me to learn how I can contribute to your organization's tech initiatives." />
-    <meta name="keywords" content="Rishabh Pandey Purdue CS Software Engineering Geico Texas Instruments Akpsi" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=6">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>🌐 Rishabh Pandey</title>
+  <meta name="description" content="Welcome to the personal website of Rishabh Pandey, a software engineer and Purdue University Computer Science graduate. Explore my portfolio, work experience, projects, and skills. Connect with me to learn how I can contribute to your organization's tech initiatives.">
+  <meta name="keywords" content="Rishabh Pandey Purdue CS Software Engineering Geico Texas Instruments Akpsi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'] },
+          colors: { neon: '#4F46E5' }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-7g1Yw6H14r2raXIiQunlslqY5T2r8j04YfGLwRoTSesFiNUFDXL9uBeb5GsyhQOdE31E4n4t4DccNI0+vrFica==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <style>
+    .gradient-bg {
+      background: radial-gradient(circle at 50% 50%, #1e1e1e, #0a0a0a);
+    }
+    .link-underline { position: relative; }
+    .link-underline::after {
+      content: ''; position: absolute; left: 0; bottom: -2px; width: 0; height: 2px; background: #4F46E5; transition: width .3s;
+    }
+    .link-underline:hover::after { width: 100%; }
+  </style>
 </head>
-
-<body class="is-preload">
-    <nav id="navbar">
-        <div class="nav-links">
-            <a href="#about-me">About</a>
-            <a href="#education">Education</a>
-            <a href="#professional">Work Exp.</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
-        </div>
-    </nav>
-
-    <div id="wrapper">
-        <!-- Section -->
-        <section class="intro">
-            <header>
-                <h1>👋 Hi! I'm Rishabh</h1>
-                <p>Software Engineer @ GEICO</p>
-                <ul class="icons">
-                    <li><a href="https://www.linkedin.com/in/pandey-rishabh/" class="icon brands fa-linkedin-in" target="_blank" rel="noopener noreferrer" aria-label="goto linkedin"><span class="label">LinkedIn</span></a></li>
-                    <li><a href="https://github.com/rishabhxpandey/" class="icon brands fa-github" target="_blank" rel="noopener noreferrer" aria-label="goto github"><span class="label">GitHub</span></a></li>
-                    <li><a href="https://x.com/rishabhxpandey" class="icon brands" target="_blank" rel="noopener noreferrer" aria-label="goto x"><img src="images/x-logo.svg" alt="X logo" /><span class="label">X</span></a></li>
-                    <li><a href="https://www.instagram.com/rishabhxpandey/" target="_blank" rel="noopener noreferrer" class="icon brands fa-instagram" aria-label="goto instagram"><span class="label">Instagram</span></a></li>
-                    <li><a href="https://open.spotify.com/user/pandeyrishabh0403" class="icon brands fa-spotify" target="_blank" rel="noopener noreferrer" aria-label="goto spotify"><span class="label">Spotify</span></a></li>
-                    <li><a href="mailto:email.rishabhp@gmail.com" class="icon brands fa-google" target="_blank" rel="noopener noreferrer" aria-label="goto email"><span class="label">Gmail</span></a></li>
-                </ul>
-                <ul class="actions">
-                    <li><a href="#about-me" class="arrow scrolly" aria-label="scroll downnn"><span class="label">Next</span></a></li>
-                </ul>
-            </header>
-            <div class="content">
-                <span class="image fill" data-position="center"><img src="images/headshot2.webp" alt="Picture of me!" /></span>
-            </div>
-        </section>
-
-        <!-- Section -->
-        <section id="about-me">
-            <header>
-                <h2>About Me!</h2>
-            </header>
-            <div class="content">
-                <p>Software engineer with a passion for building cloud-native services and AI-driven applications. I’m pursuing a B.S. in Computer Science at Purdue University (Dec 2024) and currently work at GEICO, where I build scalable contact center technology on AWS. I enjoy tackling real-world problems across industries and collaborating on impactful projects.</p>
-            </div>
-        </section>
-
-        <!-- Section -->
-        <section id="education">
-            <header>
-                <h2>Education</h2>
-            </header>
-            <div class="content">
-                <div class="content">
-                    <div class="experience-grid">
-                        <div class="education-section">
-                            <div class="education-content">
-                                <div class="degree-info">
-                                    <img src="images/purdue.webp" alt="Purdue University Logo" class="purdue-logo">
-                                    <div class="degree-details">
-                                        <h3>PURDUE UNIVERSITY</h3>
-                                        <p>B.S. in Computer Science<br>Expected Graduation: December 2024</p>
-                                    </div>
-                                </div>
-                                <h3>Relevant Coursework</h3>
-                                <ul class="coursework">
-                                    <li>Operating Systems</li>
-                                    <li>Computer Networks</li>
-                                    <li>Database Systems</li>
-                                    <li>Cloud Computing</li>
-                                    <li>AI/ML</li>
-                                </ul>
-                                <h3>Activities &amp; Societies</h3>
-                                <ul class="coursework">
-                                    <li>Alpha Kappa Psi</li>
-                                    <li>ML@Purdue</li>
-                                    <li>PurdueTHINK</li>
-                                    <li>Intramural Soccer</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section -->
-        <section id="professional">
-            <header>
-                <h2>Work Experience</h2>
-            </header>
-            <div class="content">
-                <div class="content">
-                    <div class="experience-grid">
-                        <div class="experience-box">
-                            <img src="images/geico.webp" alt="Geico Logo" class="experience-logo">
-                            <h3>Software Engineer</h3>
-                            <h3>@ GEICO</h3>
-                            <p><strong>Jan 2025 – Present</strong></p>
-                            <ul>
-                                <li>Built Python AWS Lambda services to normalize contact events, batch-write to DynamoDB, and fan-out via EventBridge with DLQs/backoff—processing ~350–500 events/min avg.</li>
-                                <li>Shipped Amazon Connect queue observability scanning ~800–900 queues, cutting runtime ~120s → ~10s and adding a DynamoDB "ignore list" to suppress noise.</li>
-                                <li>Refactored Terraform modules with least-privilege IAM and standardized alarms, DLQs, and structured logging.</li>
-                                <li>Achieved ~90% PyTest coverage and standardized JSON logging and runbooks.</li>
-                                <li>Participated in AI Hackathon: developed a RAG agent mapping natural-language intents to policy updates for a customer.</li>
-                            </ul>
-                        </div>
-                        <div class="experience-box">
-                            <img src="images/geico.webp" alt="Geico Logo" class="experience-logo">
-                            <h3>Software Development Intern</h3>
-                            <h3>@ GEICO</h3>
-                            <p><strong>Jun 2024 – Aug 2024</strong></p>
-                            <ul>
-                                <li>Deployed JupyterHub on AKS with Azure AD SSO/RBAC and Spark + ADLS, onboarding 20+ users and contributing to ~25% Snowflake cost reduction (~$3M/yr).</li>
-                                <li>Published custom Jupyter magics for one-click data access and enforced quotas/autoscaling to stabilize peak loads.</li>
-                            </ul>
-                        </div>
-                        <div class="experience-box">
-                            <img src="images/TI.webp" alt="Texas Instruments Logo" class="experience-logo">
-                            <h3>Software Engineering Intern</h3>
-                            <h3>@ Texas Instruments</h3>
-                            <p><strong>May 2023 – Aug 2023</strong></p>
-                            <ul>
-                                <li>Shipped Oracle APEX+PL/SQL app integrating 10Duke REST API; reduced license lookup from 4–6 hrs to ~3–5 sec across 250+ products and added audit logs and archival automation.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section -->
-        <section id="projects">
-            <header>
-                <h2>Projects</h2>
-            </header>
-            <div class="content">
-                <div class="content">
-                    <div class="experience-grid">
-                        <div class="experience-box">
-                            <h3> LinkedIn Interview Agent</h3>
-                            <p>Agentic interview platform: Job description and resume ingestion, semantic skill mapping (FAISS), adaptive question generation, and structured logging for latency and cost metrics.</p>
-                            <a href="https://github.com/rishabhxpandey/lnkd_apb" class="link-icon" target="_blank" aria-label="repo link">
-                                <i class="icon brands fa-github"></i>
-                            </a>
-                            <ul class="tech-stack">
-                                <li class="tech-stack-item">FastAPI</li>
-                                <li class="tech-stack-item">React</li>
-                                <li class="tech-stack-item">GPT-4o</li>
-                                <li class="tech-stack-item">FAISS</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section -->
-        <section id="skills">
-            <header>
-                <h2>Skills</h2>
-            </header>
-            <div class="content">
-                <div class="skills-grid">
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="python" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="java" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="c" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg" alt="go" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="typescript" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="aws" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" alt="azure" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" alt="gcp" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="docker" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain.svg" alt="kubernetes" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg" alt="terraform" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="git" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="github" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="linux" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="postgresql" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg" alt="redis" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg" alt="fastapi" />
-                    </div>
-                    <div class="skill-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" alt="scikit-learn" />
-                    </div>
-                </div>
-            </div>
-        </section>
+<body class="bg-gray-950 text-gray-100 font-sans">
+  <!-- Navbar -->
+  <header class="fixed top-0 w-full z-50 bg-gray-950/80 backdrop-blur border-b border-gray-800">
+    <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+      <a href="#" class="text-xl font-bold">RP</a>
+      <nav class="hidden md:flex space-x-8 text-sm">
+        <a href="#about" class="link-underline hover:text-neon">About</a>
+        <a href="#education" class="link-underline hover:text-neon">Education</a>
+        <a href="#experience" class="link-underline hover:text-neon">Experience</a>
+        <a href="#projects" class="link-underline hover:text-neon">Projects</a>
+        <a href="#skills" class="link-underline hover:text-neon">Skills</a>
+        <a href="assets/resume.pdf" class="link-underline hover:text-neon" target="_blank">Resume</a>
+      </nav>
+      <button id="menu-btn" class="md:hidden text-2xl focus:outline-none"><i class="fas fa-bars"></i></button>
     </div>
+    <div id="mobile-menu" class="hidden md:hidden flex flex-col space-y-2 px-4 pb-4 text-sm">
+      <a href="#about" class="link-underline">About</a>
+      <a href="#education" class="link-underline">Education</a>
+      <a href="#experience" class="link-underline">Experience</a>
+      <a href="#projects" class="link-underline">Projects</a>
+      <a href="#skills" class="link-underline">Skills</a>
+      <a href="assets/resume.pdf" class="link-underline" target="_blank">Resume</a>
+    </div>
+  </header>
 
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+  <!-- Hero -->
+  <section id="hero" class="min-h-screen flex flex-col items-center justify-center text-center gradient-bg relative overflow-hidden">
+    <div class="relative z-10 px-4">
+      <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Hi, I'm Rishabh — I build things for the web and AI.</h1>
+      <p class="text-lg md:text-2xl text-gray-400">Software Engineer @ GEICO</p>
+      <div class="mt-8 flex space-x-6 justify-center text-2xl">
+        <a href="https://www.linkedin.com/in/pandey-rishabh/" target="_blank" class="hover:text-neon"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/rishabhxpandey/" target="_blank" class="hover:text-neon"><i class="fab fa-github"></i></a>
+        <a href="https://x.com/rishabhxpandey" target="_blank" class="hover:text-neon"><img src="images/x-logo.svg" alt="X" class="w-6 h-6 inline"></a>
+        <a href="https://www.instagram.com/rishabhxpandey/" target="_blank" class="hover:text-neon"><i class="fab fa-instagram"></i></a>
+        <a href="https://open.spotify.com/user/pandeyrishabh0403" target="_blank" class="hover:text-neon"><i class="fab fa-spotify"></i></a>
+        <a href="mailto:email.rishabhp@gmail.com" class="hover:text-neon"><i class="fab fa-google"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="max-w-4xl mx-auto px-4 py-24 reveal">
+    <h2 class="text-4xl font-bold mb-6">About Me!</h2>
+    <p class="text-lg text-gray-400">Software engineer with a passion for building cloud-native services and AI-driven applications. I’m pursuing a B.S. in Computer Science at Purdue University (Dec 2024) and currently work at GEICO, where I build scalable contact center technology on AWS. I enjoy tackling real-world problems across industries and collaborating on impactful projects.</p>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="max-w-4xl mx-auto px-4 py-24 reveal">
+    <h2 class="text-4xl font-bold mb-8">Education</h2>
+    <div class="bg-white/5 border border-white/10 rounded-xl p-8 md:p-12 backdrop-blur" data-tilt>
+      <div class="flex items-center mb-6 space-x-4">
+        <img src="images/purdue.webp" alt="Purdue University Logo" class="w-16 h-16 object-contain">
+        <div>
+          <h3 class="text-xl font-semibold">PURDUE UNIVERSITY</h3>
+          <p class="text-gray-400">B.S. in Computer Science<br>Expected Graduation: December 2024</p>
+        </div>
+      </div>
+      <h3 class="text-lg font-semibold mb-2">Relevant Coursework</h3>
+      <ul class="grid grid-cols-1 md:grid-cols-2 gap-1 text-gray-400 mb-4 list-disc list-inside">
+        <li>Operating Systems</li>
+        <li>Computer Networks</li>
+        <li>Database Systems</li>
+        <li>Cloud Computing</li>
+        <li>AI/ML</li>
+      </ul>
+      <h3 class="text-lg font-semibold mb-2">Activities &amp; Societies</h3>
+      <ul class="grid grid-cols-1 md:grid-cols-2 gap-1 text-gray-400 list-disc list-inside">
+        <li>Alpha Kappa Psi</li>
+        <li>ML@Purdue</li>
+        <li>PurdueTHINK</li>
+        <li>Intramural Soccer</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="max-w-6xl mx-auto px-4 py-24 reveal">
+    <h2 class="text-4xl font-bold mb-8">Work Experience</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="bg-white/5 border border-white/10 rounded-xl p-8 backdrop-blur" data-tilt>
+        <div class="flex items-center space-x-4 mb-4">
+          <img src="images/geico.webp" alt="Geico Logo" class="w-12 h-12 object-contain">
+          <div>
+            <h3 class="text-xl font-semibold">Software Engineer</h3>
+            <p class="text-gray-400">@ GEICO</p>
+            <p class="text-gray-500 text-sm"><strong>Jan 2025 – Present</strong></p>
+          </div>
+        </div>
+        <ul class="list-disc list-inside text-gray-400 space-y-2 text-sm">
+          <li>Built Python AWS Lambda services to normalize contact events, batch-write to DynamoDB, and fan-out via EventBridge with DLQs/backoff—processing ~350–500 events/min avg.</li>
+          <li>Shipped Amazon Connect queue observability scanning ~800–900 queues, cutting runtime ~120s → ~10s and adding a DynamoDB "ignore list" to suppress noise.</li>
+          <li>Refactored Terraform modules with least-privilege IAM and standardized alarms, DLQs, and structured logging.</li>
+          <li>Achieved ~90% PyTest coverage and standardized JSON logging and runbooks.</li>
+          <li>Participated in AI Hackathon: developed a RAG agent mapping natural-language intents to policy updates for a customer.</li>
+        </ul>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-xl p-8 backdrop-blur" data-tilt>
+        <div class="flex items-center space-x-4 mb-4">
+          <img src="images/geico.webp" alt="Geico Logo" class="w-12 h-12 object-contain">
+          <div>
+            <h3 class="text-xl font-semibold">Software Development Intern</h3>
+            <p class="text-gray-400">@ GEICO</p>
+            <p class="text-gray-500 text-sm"><strong>Jun 2024 – Aug 2024</strong></p>
+          </div>
+        </div>
+        <ul class="list-disc list-inside text-gray-400 space-y-2 text-sm">
+          <li>Deployed JupyterHub on AKS with Azure AD SSO/RBAC and Spark + ADLS, onboarding 20+ users and contributing to ~25% Snowflake cost reduction (~$3M/yr).</li>
+          <li>Published custom Jupyter magics for one-click data access and enforced quotas/autoscaling to stabilize peak loads.</li>
+        </ul>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-xl p-8 backdrop-blur md:col-span-2" data-tilt>
+        <div class="flex items-center space-x-4 mb-4">
+          <img src="images/TI.webp" alt="Texas Instruments Logo" class="w-12 h-12 object-contain">
+          <div>
+            <h3 class="text-xl font-semibold">Software Engineering Intern</h3>
+            <p class="text-gray-400">@ Texas Instruments</p>
+            <p class="text-gray-500 text-sm"><strong>May 2023 – Aug 2023</strong></p>
+          </div>
+        </div>
+        <ul class="list-disc list-inside text-gray-400 space-y-2 text-sm">
+          <li>Shipped Oracle APEX+PL/SQL app integrating 10Duke REST API; reduced license lookup from 4–6 hrs to ~3–5 sec across 250+ products and added audit logs and archival automation.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="max-w-6xl mx-auto px-4 py-24 reveal">
+    <h2 class="text-4xl font-bold mb-8">Projects</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="bg-white/5 border border-white/10 rounded-xl p-8 backdrop-blur" data-tilt>
+        <h3 class="text-xl font-semibold mb-2">LinkedIn Interview Agent</h3>
+        <p class="text-gray-400 mb-4">Agentic interview platform: Job description and resume ingestion, semantic skill mapping (FAISS), adaptive question generation, and structured logging for latency and cost metrics.</p>
+        <a href="https://github.com/rishabhxpandey/lnkd_apb" target="_blank" class="text-2xl hover:text-neon mb-4 inline-block" aria-label="repo link"><i class="fab fa-github"></i></a>
+        <ul class="flex flex-wrap gap-2 text-gray-400 text-sm">
+          <li class="px-2 py-1 bg-gray-800 rounded-md">FastAPI</li>
+          <li class="px-2 py-1 bg-gray-800 rounded-md">React</li>
+          <li class="px-2 py-1 bg-gray-800 rounded-md">GPT-4o</li>
+          <li class="px-2 py-1 bg-gray-800 rounded-md">FAISS</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="max-w-6xl mx-auto px-4 py-24 reveal">
+    <h2 class="text-4xl font-bold mb-8">Skills</h2>
+    <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-8 text-4xl text-gray-400">
+      <i class="devicon-python-plain"></i>
+      <i class="devicon-java-plain"></i>
+      <i class="devicon-c-plain"></i>
+      <i class="devicon-go-plain"></i>
+      <i class="devicon-typescript-plain"></i>
+      <i class="devicon-amazonwebservices-original"></i>
+      <i class="devicon-azure-plain"></i>
+      <i class="devicon-googlecloud-plain"></i>
+      <i class="devicon-docker-plain"></i>
+      <i class="devicon-kubernetes-plain"></i>
+      <i class="devicon-terraform-plain"></i>
+      <i class="devicon-git-plain"></i>
+      <i class="devicon-github-original"></i>
+      <i class="devicon-linux-plain"></i>
+      <i class="devicon-postgresql-plain"></i>
+      <i class="devicon-redis-plain"></i>
+      <i class="devicon-fastapi-plain"></i>
+      <i class="devicon-scikitlearn-plain"></i>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="max-w-4xl mx-auto px-4 py-24 text-center reveal">
+    <h2 class="text-4xl font-bold mb-6">Get in Touch</h2>
+    <p class="text-lg text-gray-400 mb-8">Feel free to reach out for collaborations or just a friendly hello.</p>
+    <a href="mailto:email.rishabhp@gmail.com" class="inline-block px-6 py-3 border border-neon text-neon rounded-lg hover:bg-neon hover:text-gray-950 transition">Say Hello</a>
+  </section>
+
+  <footer class="text-center text-xs text-gray-600 pb-8">
+    © 2025 Rishabh Pandey
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('opacity-0','translate-y-4');
+          entry.target.classList.add('opacity-100','translate-y-0','transition','duration-700');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el => {
+      el.classList.add('opacity-0','translate-y-4');
+      observer.observe(el);
+    });
+  </script>
 </body>
-
 </html>
