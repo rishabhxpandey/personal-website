@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>🌐 Rishabh Pandey</title>
-  <meta name="description" content="Welcome to the personal website of Rishabh Pandey, a software engineer and Purdue University Computer Science graduate. Explore my portfolio, work experience, projects, and skills. Connect with me to learn how I can contribute to your organization's tech initiatives.">
-  <meta name="keywords" content="Rishabh Pandey Purdue CS Software Engineering Geico Texas Instruments Akpsi">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <meta name="description" content="Welcome to the personal website of Rishabh Pandey, a software engineer and Purdue University Computer Science graduate. Explore my portfolio, work experience, projects, and skills. Connect with me to learn how I can contribute to your organization's tech initiatives." />
+  <meta name="keywords" content="Rishabh Pandey Purdue CS Software Engineering Geico Texas Instruments Akpsi" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -21,219 +21,330 @@
     }
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-7g1Yw6H14r2raXIiQunlslqY5T2r8j04YfGLwRoTSesFiNUFDXL9uBeb5GsyhQOdE31E4n4t4DccNI0+vrFica==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <style>
-    .gradient-bg {
-      background: radial-gradient(circle at 50% 50%, #1e1e1e, #0a0a0a);
+    body { background: radial-gradient(circle at 50% 50%, #1e1e1e, #0a0a0a); }
+    @keyframes gradient {
+      0%,100%{background-position:50% 50%}
+      50%{background-position:60% 60%}
     }
-    .link-underline { position: relative; }
-    .link-underline::after {
-      content: ''; position: absolute; left: 0; bottom: -2px; width: 0; height: 2px; background: #4F46E5; transition: width .3s;
+    .animate-gradient { background-size:200% 200%; animation:gradient 15s ease infinite; }
+    .link-underline{position:relative}
+    .link-underline::after{content:'';position:absolute;left:0;bottom:-2px;width:0;height:2px;background:#4F46E5;transition:width .3s}
+    .link-underline:hover::after{width:100%}
+    @layer utilities {
+      .glass { @apply bg-white/5 border border-white/10 backdrop-blur; }
+      .chip { @apply px-3 py-1 rounded-full bg-gray-800 text-gray-300 text-sm; }
+      .kpi { @apply px-2 py-1 rounded bg-gray-800/60; }
+      .badge { @apply px-2 py-1 bg-gray-800 rounded-md text-sm; }
+      .pill { @apply px-2 py-1 bg-gray-800 rounded-full text-sm; }
+      .btn-primary { @apply px-5 py-2 rounded-lg bg-neon text-gray-950 font-semibold hover:bg-neon/90 transition; }
+      .btn-secondary { @apply px-5 py-2 rounded-lg border border-neon text-neon hover:bg-neon hover:text-gray-950 transition; }
+      .filter-btn { @apply px-3 py-1 rounded-full border border-gray-700 text-sm hover:border-neon hover:text-neon transition; }
+      .filter-btn.active { @apply border-neon text-neon; }
     }
-    .link-underline:hover::after { width: 100%; }
   </style>
 </head>
-<body class="bg-gray-950 text-gray-100 font-sans">
-  <!-- Navbar -->
-  <header class="fixed top-0 w-full z-50 bg-gray-950/80 backdrop-blur border-b border-gray-800">
-    <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
-      <a href="#" class="text-xl font-bold">RP</a>
-      <nav class="hidden md:flex space-x-8 text-sm">
-        <a href="#about" class="link-underline hover:text-neon">About</a>
-        <a href="#education" class="link-underline hover:text-neon">Education</a>
-        <a href="#experience" class="link-underline hover:text-neon">Experience</a>
-        <a href="#projects" class="link-underline hover:text-neon">Projects</a>
-        <a href="#skills" class="link-underline hover:text-neon">Skills</a>
-        <a href="assets/resume.pdf" class="link-underline hover:text-neon" target="_blank">Resume</a>
+<body class="text-gray-100 font-sans leading-[1.1]">
+  <header class="fixed top-0 inset-x-0 z-50 bg-gray-950/80 backdrop-blur border-b border-gray-800" role="banner">
+    <div class="max-w-screen-xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="#hero" class="text-xl font-bold">RP</a>
+      <nav class="hidden md:flex space-x-8" aria-label="Primary">
+        <a href="#about" class="nav-link link-underline">About</a>
+        <a href="#experience" class="nav-link link-underline">Experience</a>
+        <a href="#projects" class="nav-link link-underline">Projects</a>
+        <a href="#skills" class="nav-link link-underline">Skills</a>
+        <a href="#education" class="nav-link link-underline">Education</a>
+        <a href="assets/resume.pdf" target="_blank" class="link-underline">Resume</a>
       </nav>
-      <button id="menu-btn" class="md:hidden text-2xl focus:outline-none"><i class="fas fa-bars"></i></button>
+      <button id="menu-btn" class="md:hidden text-2xl" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
     </div>
-    <div id="mobile-menu" class="hidden md:hidden flex flex-col space-y-2 px-4 pb-4 text-sm">
+    <nav id="mobile-menu" class="md:hidden hidden flex flex-col space-y-2 px-4 pb-4" aria-label="Mobile">
       <a href="#about" class="link-underline">About</a>
-      <a href="#education" class="link-underline">Education</a>
       <a href="#experience" class="link-underline">Experience</a>
       <a href="#projects" class="link-underline">Projects</a>
       <a href="#skills" class="link-underline">Skills</a>
-      <a href="assets/resume.pdf" class="link-underline" target="_blank">Resume</a>
-    </div>
+      <a href="#education" class="link-underline">Education</a>
+      <a href="assets/resume.pdf" target="_blank" class="link-underline">Resume</a>
+    </nav>
   </header>
 
-  <!-- Hero -->
-  <section id="hero" class="min-h-screen flex flex-col items-center justify-center text-center gradient-bg relative overflow-hidden">
-    <div class="relative z-10 px-4">
-      <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Hi, I'm Rishabh — I build things for the web and AI.</h1>
-      <p class="text-lg md:text-2xl text-gray-400">Software Engineer @ GEICO</p>
-      <div class="mt-8 flex space-x-6 justify-center text-2xl">
-        <a href="https://www.linkedin.com/in/pandey-rishabh/" target="_blank" class="hover:text-neon"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/rishabhxpandey/" target="_blank" class="hover:text-neon"><i class="fab fa-github"></i></a>
-        <a href="https://x.com/rishabhxpandey" target="_blank" class="hover:text-neon"><img src="images/x-logo.svg" alt="X" class="w-6 h-6 inline"></a>
-        <a href="https://www.instagram.com/rishabhxpandey/" target="_blank" class="hover:text-neon"><i class="fab fa-instagram"></i></a>
-        <a href="https://open.spotify.com/user/pandeyrishabh0403" target="_blank" class="hover:text-neon"><i class="fab fa-spotify"></i></a>
-        <a href="mailto:email.rishabhp@gmail.com" class="hover:text-neon"><i class="fab fa-google"></i></a>
+  <main class="pt-24 animate-gradient">
+    <section id="hero" class="min-h-screen flex items-center" aria-label="Hero">
+      <div class="max-w-screen-xl mx-auto px-4">
+        <h1 class="text-5xl md:text-6xl font-extrabold mb-4">Hi, I'm Rishabh — I build things for the web and AI.</h1>
+        <p class="text-xl text-gray-400 mb-6">Software Engineer @ GEICO</p>
+        <div class="flex flex-wrap gap-4 mb-6">
+          <a href="assets/resume.pdf" target="_blank" class="btn-primary">View Resume</a>
+          <a href="mailto:email.rishabhp@gmail.com" class="btn-secondary">Email Me</a>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <span class="chip">📍 Remote / US</span>
+          <span class="chip">3+ yrs exp</span>
+          <span class="chip">Cloud &amp; AI</span>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- About -->
-  <section id="about" class="max-w-4xl mx-auto px-4 py-24 reveal">
-    <h2 class="text-4xl font-bold mb-6">About Me!</h2>
-    <p class="text-lg text-gray-400">Software engineer with a passion for building cloud-native services and AI-driven applications. I’m pursuing a B.S. in Computer Science at Purdue University (Dec 2024) and currently work at GEICO, where I build scalable contact center technology on AWS. I enjoy tackling real-world problems across industries and collaborating on impactful projects.</p>
-  </section>
+    <section aria-label="Highlights" class="py-6">
+      <div class="max-w-screen-xl mx-auto px-4 flex flex-wrap gap-2 font-mono text-xs text-gray-400">
+        <span class="kpi">AWS/Lambda • Terraform • Data @ scale</span>
+        <span class="kpi">90% PyTest</span>
+        <span class="kpi">RAG/Agentic systems</span>
+        <span class="kpi">Fast prototypes</span>
+      </div>
+    </section>
 
-  <!-- Education -->
-  <section id="education" class="max-w-4xl mx-auto px-4 py-24 reveal">
-    <h2 class="text-4xl font-bold mb-8">Education</h2>
-    <div class="bg-white/5 border border-white/10 rounded-xl p-8 md:p-12 backdrop-blur" data-tilt>
-      <div class="flex items-center mb-6 space-x-4">
-        <img src="images/purdue.webp" alt="Purdue University Logo" class="w-16 h-16 object-contain">
+    <section id="about" class="max-w-screen-lg mx-auto px-4 py-24 reveal" aria-labelledby="about-title">
+      <h2 id="about-title" class="text-4xl font-bold mb-6">About</h2>
+      <p class="text-lg text-gray-400">Software engineer with a passion for building cloud-native services and AI-driven applications. I’m pursuing a B.S. in Computer Science at Purdue University (Dec 2024) and currently work at GEICO, where I build scalable contact center technology on AWS. I enjoy tackling real-world problems across industries and collaborating on impactful projects.</p>
+    </section>
+
+    <section id="experience" class="max-w-screen-lg mx-auto px-4 py-24 reveal" aria-labelledby="exp-title">
+      <h2 id="exp-title" class="text-4xl font-bold mb-12">Experience</h2>
+      <div class="relative border-l border-gray-700 pl-8 space-y-12">
+        <article class="relative" aria-labelledby="geico-se-title">
+          <img src="images/geico.webp" alt="GEICO logo" class="absolute -left-16 top-0 w-12 h-12 object-contain bg-gray-900 p-2 rounded-full border border-gray-700" />
+          <div>
+            <h3 id="geico-se-title" class="text-xl font-semibold">Software Engineer <span class="text-gray-400">@ GEICO</span></h3>
+            <p class="text-sm text-gray-500 mb-2">Jan 2025 – Present</p>
+            <p class="text-gray-400 mb-2">Building scalable contact center tech on AWS.</p>
+            <ul class="list-disc list-inside text-gray-400 space-y-1">
+              <li>Built Python AWS Lambda services to normalize contact events, batch-write to DynamoDB, and fan-out via EventBridge with DLQs/backoff—processing ~350–500 events/min avg.</li>
+              <li>Shipped Amazon Connect queue observability scanning ~800–900 queues, cutting runtime ~120s → ~10s and adding a DynamoDB "ignore list" to suppress noise.</li>
+              <li>Refactored Terraform modules with least-privilege IAM and standardized alarms, DLQs, and structured logging.</li>
+            </ul>
+            <button class="more-btn mt-2 text-neon flex items-center gap-1" data-target="geico-se-more" aria-expanded="false">More details <i class="fas fa-chevron-down"></i></button>
+            <ul id="geico-se-more" class="hidden list-disc list-inside text-gray-400 space-y-1 mt-2">
+              <li>Achieved ~90% PyTest coverage and standardized JSON logging and runbooks.</li>
+              <li>Participated in AI Hackathon: developed a RAG agent mapping natural-language intents to policy updates for a customer.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="relative" aria-labelledby="geico-intern-title">
+          <img src="images/geico.webp" alt="GEICO logo" class="absolute -left-16 top-0 w-12 h-12 object-contain bg-gray-900 p-2 rounded-full border border-gray-700" />
+          <div>
+            <h3 id="geico-intern-title" class="text-xl font-semibold">Software Development Intern <span class="text-gray-400">@ GEICO</span></h3>
+            <p class="text-sm text-gray-500 mb-2">Jun 2024 – Aug 2024</p>
+            <p class="text-gray-400 mb-2">Enabled data science workflows on Azure.</p>
+            <ul class="list-disc list-inside text-gray-400 space-y-1">
+              <li>Deployed JupyterHub on AKS with Azure AD SSO/RBAC and Spark + ADLS, onboarding 20+ users and contributing to ~25% Snowflake cost reduction (~$3M/yr).</li>
+              <li>Published custom Jupyter magics for one-click data access and enforced quotas/autoscaling to stabilize peak loads.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="relative" aria-labelledby="ti-intern-title">
+          <img src="images/TI.webp" alt="Texas Instruments logo" class="absolute -left-16 top-0 w-12 h-12 object-contain bg-gray-900 p-2 rounded-full border border-gray-700" />
+          <div>
+            <h3 id="ti-intern-title" class="text-xl font-semibold">Software Engineering Intern <span class="text-gray-400">@ Texas Instruments</span></h3>
+            <p class="text-sm text-gray-500 mb-2">May 2023 – Aug 2023</p>
+            <p class="text-gray-400 mb-2">Automated license lookup and auditing.</p>
+            <ul class="list-disc list-inside text-gray-400 space-y-1">
+              <li>Shipped Oracle APEX+PL/SQL app integrating 10Duke REST API; reduced license lookup from 4–6 hrs to ~3–5 sec across 250+ products and added audit logs and archival automation.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="max-w-screen-xl mx-auto px-4 py-24 reveal" aria-labelledby="projects-title">
+      <h2 id="projects-title" class="text-4xl font-bold mb-12">Projects</h2>
+      <div class="mb-6 flex flex-wrap gap-2" id="project-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="ai">AI</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid">
+        <article class="glass rounded-xl p-6 project-card" data-type="ai">
+          <h3 class="text-xl font-semibold mb-2">LinkedIn Interview Agent</h3>
+          <p class="text-gray-400 mb-4">Agentic interview platform: Job description and resume ingestion, semantic skill mapping (FAISS), adaptive question generation, and structured logging for latency and cost metrics.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="badge">FastAPI</span>
+            <span class="badge">React</span>
+            <span class="badge">GPT-4o</span>
+            <span class="badge">FAISS</span>
+          </div>
+          <div class="flex flex-wrap gap-4 text-sm">
+            <a href="https://github.com/rishabhxpandey/lnkd_apb" target="_blank" class="link-underline">Code</a>
+            <span class="text-gray-500">Demo</span>
+          </div>
+          <p class="mt-2 text-xs text-gray-500">p95 1.5–3s</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="max-w-screen-xl mx-auto px-4 py-24 reveal" aria-labelledby="skills-title">
+      <h2 id="skills-title" class="text-4xl font-bold mb-12">Skills</h2>
+      <div class="space-y-8">
         <div>
-          <h3 class="text-xl font-semibold">PURDUE UNIVERSITY</h3>
-          <p class="text-gray-400">B.S. in Computer Science<br>Expected Graduation: December 2024</p>
+          <h3 class="text-lg font-semibold mb-2">Backend</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="pill">Python</span>
+            <span class="pill">Java</span>
+            <span class="pill">C</span>
+            <span class="pill">Go</span>
+            <span class="pill">TypeScript</span>
+            <span class="pill">FastAPI</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-2">Data</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="pill">PostgreSQL</span>
+            <span class="pill">Redis</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-2">Cloud</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="pill">AWS</span>
+            <span class="pill">Azure</span>
+            <span class="pill">Google Cloud</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-2">DevOps</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="pill">Docker</span>
+            <span class="pill">Kubernetes</span>
+            <span class="pill">Terraform</span>
+            <span class="pill">Git</span>
+            <span class="pill">GitHub</span>
+            <span class="pill">Linux</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-2">AI / ML</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="pill">scikit-learn</span>
+          </div>
         </div>
       </div>
-      <h3 class="text-lg font-semibold mb-2">Relevant Coursework</h3>
-      <ul class="grid grid-cols-1 md:grid-cols-2 gap-1 text-gray-400 mb-4 list-disc list-inside">
-        <li>Operating Systems</li>
-        <li>Computer Networks</li>
-        <li>Database Systems</li>
-        <li>Cloud Computing</li>
-        <li>AI/ML</li>
+    </section>
+
+    <section id="education" class="max-w-screen-xl mx-auto px-4 py-24 reveal" aria-labelledby="edu-title">
+      <h2 id="edu-title" class="text-4xl font-bold mb-12">Education</h2>
+      <div class="glass rounded-xl p-8 flex items-center gap-6">
+        <img src="images/purdue.webp" alt="Purdue University Logo" class="w-20 h-20 object-contain" />
+        <div>
+          <h3 class="text-xl font-semibold">Purdue University</h3>
+          <p class="text-gray-400">B.S. in Computer Science, Expected Graduation: December 2024</p>
+          <p class="text-sm text-gray-500">Courses: Operating Systems, Computer Networks, Database Systems, Cloud Computing, AI/ML</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="max-w-screen-md mx-auto px-4 py-24 text-center reveal" aria-labelledby="contact-title">
+      <h2 id="contact-title" class="text-4xl font-bold mb-6">Get in Touch</h2>
+      <p class="text-lg text-gray-400 mb-8">Feel free to reach out for collaborations or just a friendly hello.</p>
+      <div class="flex justify-center gap-6 mb-6 text-2xl">
+        <a href="https://www.linkedin.com/in/pandey-rishabh/" target="_blank" class="hover:text-neon" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/rishabhxpandey/" target="_blank" class="hover:text-neon" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <button id="copy-email" class="hover:text-neon" aria-label="Copy email"><i class="fas fa-envelope"></i></button>
+      </div>
+      <p id="copy-msg" class="text-sm text-gray-500"></p>
+    </section>
+  </main>
+
+  <footer class="text-center text-xs text-gray-600 pb-8">© 2025 Rishabh Pandey</footer>
+
+  <div id="command-palette" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm flex items-start justify-center pt-32 z-50" role="dialog" aria-modal="true">
+    <div class="bg-gray-900 border border-gray-700 rounded-lg w-full max-w-md p-4">
+      <input type="text" id="cmd-input" placeholder="Jump to..." class="w-full bg-gray-800 text-gray-100 p-2 rounded mb-3 focus:outline-none" />
+      <ul id="cmd-list" class="space-y-1">
+        <li><a href="#about" class="cmd-item block px-2 py-1 rounded hover:bg-gray-800">About</a></li>
+        <li><a href="#experience" class="cmd-item block px-2 py-1 rounded hover:bg-gray-800">Experience</a></li>
+        <li><a href="#projects" class="cmd-item block px-2 py-1 rounded hover:bg-gray-800">Projects</a></li>
+        <li><a href="#skills" class="cmd-item block px-2 py-1 rounded hover:bg-gray-800">Skills</a></li>
+        <li><a href="#education" class="cmd-item block px-2 py-1 rounded hover:bg-gray-800">Education</a></li>
+        <li><a href="assets/resume.pdf" target="_blank" class="cmd-item block px-2 py-1 rounded hover:bg-gray-800">Resume</a></li>
       </ul>
-      <h3 class="text-lg font-semibold mb-2">Activities &amp; Societies</h3>
-      <ul class="grid grid-cols-1 md:grid-cols-2 gap-1 text-gray-400 list-disc list-inside">
-        <li>Alpha Kappa Psi</li>
-        <li>ML@Purdue</li>
-        <li>PurdueTHINK</li>
-        <li>Intramural Soccer</li>
-      </ul>
     </div>
-  </section>
+  </div>
 
-  <!-- Experience -->
-  <section id="experience" class="max-w-6xl mx-auto px-4 py-24 reveal">
-    <h2 class="text-4xl font-bold mb-8">Work Experience</h2>
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="bg-white/5 border border-white/10 rounded-xl p-8 backdrop-blur" data-tilt>
-        <div class="flex items-center space-x-4 mb-4">
-          <img src="images/geico.webp" alt="Geico Logo" class="w-12 h-12 object-contain">
-          <div>
-            <h3 class="text-xl font-semibold">Software Engineer</h3>
-            <p class="text-gray-400">@ GEICO</p>
-            <p class="text-gray-500 text-sm"><strong>Jan 2025 – Present</strong></p>
-          </div>
-        </div>
-        <ul class="list-disc list-inside text-gray-400 space-y-2 text-sm">
-          <li>Built Python AWS Lambda services to normalize contact events, batch-write to DynamoDB, and fan-out via EventBridge with DLQs/backoff—processing ~350–500 events/min avg.</li>
-          <li>Shipped Amazon Connect queue observability scanning ~800–900 queues, cutting runtime ~120s → ~10s and adding a DynamoDB "ignore list" to suppress noise.</li>
-          <li>Refactored Terraform modules with least-privilege IAM and standardized alarms, DLQs, and structured logging.</li>
-          <li>Achieved ~90% PyTest coverage and standardized JSON logging and runbooks.</li>
-          <li>Participated in AI Hackathon: developed a RAG agent mapping natural-language intents to policy updates for a customer.</li>
-        </ul>
-      </div>
-      <div class="bg-white/5 border border-white/10 rounded-xl p-8 backdrop-blur" data-tilt>
-        <div class="flex items-center space-x-4 mb-4">
-          <img src="images/geico.webp" alt="Geico Logo" class="w-12 h-12 object-contain">
-          <div>
-            <h3 class="text-xl font-semibold">Software Development Intern</h3>
-            <p class="text-gray-400">@ GEICO</p>
-            <p class="text-gray-500 text-sm"><strong>Jun 2024 – Aug 2024</strong></p>
-          </div>
-        </div>
-        <ul class="list-disc list-inside text-gray-400 space-y-2 text-sm">
-          <li>Deployed JupyterHub on AKS with Azure AD SSO/RBAC and Spark + ADLS, onboarding 20+ users and contributing to ~25% Snowflake cost reduction (~$3M/yr).</li>
-          <li>Published custom Jupyter magics for one-click data access and enforced quotas/autoscaling to stabilize peak loads.</li>
-        </ul>
-      </div>
-      <div class="bg-white/5 border border-white/10 rounded-xl p-8 backdrop-blur md:col-span-2" data-tilt>
-        <div class="flex items-center space-x-4 mb-4">
-          <img src="images/TI.webp" alt="Texas Instruments Logo" class="w-12 h-12 object-contain">
-          <div>
-            <h3 class="text-xl font-semibold">Software Engineering Intern</h3>
-            <p class="text-gray-400">@ Texas Instruments</p>
-            <p class="text-gray-500 text-sm"><strong>May 2023 – Aug 2023</strong></p>
-          </div>
-        </div>
-        <ul class="list-disc list-inside text-gray-400 space-y-2 text-sm">
-          <li>Shipped Oracle APEX+PL/SQL app integrating 10Duke REST API; reduced license lookup from 4–6 hrs to ~3–5 sec across 250+ products and added audit logs and archival automation.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="max-w-6xl mx-auto px-4 py-24 reveal">
-    <h2 class="text-4xl font-bold mb-8">Projects</h2>
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="bg-white/5 border border-white/10 rounded-xl p-8 backdrop-blur" data-tilt>
-        <h3 class="text-xl font-semibold mb-2">LinkedIn Interview Agent</h3>
-        <p class="text-gray-400 mb-4">Agentic interview platform: Job description and resume ingestion, semantic skill mapping (FAISS), adaptive question generation, and structured logging for latency and cost metrics.</p>
-        <a href="https://github.com/rishabhxpandey/lnkd_apb" target="_blank" class="text-2xl hover:text-neon mb-4 inline-block" aria-label="repo link"><i class="fab fa-github"></i></a>
-        <ul class="flex flex-wrap gap-2 text-gray-400 text-sm">
-          <li class="px-2 py-1 bg-gray-800 rounded-md">FastAPI</li>
-          <li class="px-2 py-1 bg-gray-800 rounded-md">React</li>
-          <li class="px-2 py-1 bg-gray-800 rounded-md">GPT-4o</li>
-          <li class="px-2 py-1 bg-gray-800 rounded-md">FAISS</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills" class="max-w-6xl mx-auto px-4 py-24 reveal">
-    <h2 class="text-4xl font-bold mb-8">Skills</h2>
-    <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-8 text-4xl text-gray-400">
-      <i class="devicon-python-plain"></i>
-      <i class="devicon-java-plain"></i>
-      <i class="devicon-c-plain"></i>
-      <i class="devicon-go-plain"></i>
-      <i class="devicon-typescript-plain"></i>
-      <i class="devicon-amazonwebservices-original"></i>
-      <i class="devicon-azure-plain"></i>
-      <i class="devicon-googlecloud-plain"></i>
-      <i class="devicon-docker-plain"></i>
-      <i class="devicon-kubernetes-plain"></i>
-      <i class="devicon-terraform-plain"></i>
-      <i class="devicon-git-plain"></i>
-      <i class="devicon-github-original"></i>
-      <i class="devicon-linux-plain"></i>
-      <i class="devicon-postgresql-plain"></i>
-      <i class="devicon-redis-plain"></i>
-      <i class="devicon-fastapi-plain"></i>
-      <i class="devicon-scikitlearn-plain"></i>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="max-w-4xl mx-auto px-4 py-24 text-center reveal">
-    <h2 class="text-4xl font-bold mb-6">Get in Touch</h2>
-    <p class="text-lg text-gray-400 mb-8">Feel free to reach out for collaborations or just a friendly hello.</p>
-    <a href="mailto:email.rishabhp@gmail.com" class="inline-block px-6 py-3 border border-neon text-neon rounded-lg hover:bg-neon hover:text-gray-950 transition">Say Hello</a>
-  </section>
-
-  <footer class="text-center text-xs text-gray-600 pb-8">
-    © 2025 Rishabh Pandey
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
   <script>
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    const sections = document.querySelectorAll('main section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const spy = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const id = entry.target.getAttribute('id');
+        const link = document.querySelectorAll('a[href="#' + id + '"]');
+        link.forEach(l => l.classList.toggle('text-neon', entry.isIntersecting));
+      });
+    }, { rootMargin: '-50% 0px -50% 0px' });
+    sections.forEach(section => spy.observe(section));
+
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const revealObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove('opacity-0','translate-y-4');
+            entry.target.classList.add('opacity-100','translate-y-0','transition','duration-700');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach(el => {
+        el.classList.add('opacity-0','translate-y-4');
+        revealObserver.observe(el);
+      });
+    }
+
+    document.querySelectorAll('.more-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = document.getElementById(btn.dataset.target);
+        target.classList.toggle('hidden');
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !expanded);
+        btn.querySelector('i').classList.toggle('fa-chevron-down');
+        btn.querySelector('i').classList.toggle('fa-chevron-up');
+      });
     });
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.remove('opacity-0','translate-y-4');
-          entry.target.classList.add('opacity-100','translate-y-0','transition','duration-700');
-          observer.unobserve(entry.target);
-        }
+    const filters = document.querySelectorAll('#project-filters .filter-btn');
+    const projects = document.querySelectorAll('.project-card');
+    filters.forEach(f => {
+      f.addEventListener('click', () => {
+        filters.forEach(b => b.classList.remove('active'));
+        f.classList.add('active');
+        const type = f.dataset.filter;
+        projects.forEach(card => {
+          card.classList.toggle('hidden', type !== 'all' && card.dataset.type !== type);
+        });
       });
-    }, {threshold:0.1});
-    document.querySelectorAll('.reveal').forEach(el => {
-      el.classList.add('opacity-0','translate-y-4');
-      observer.observe(el);
+    });
+
+    const palette = document.getElementById('command-palette');
+    const cmdInput = document.getElementById('cmd-input');
+    function openPalette(){
+      palette.classList.remove('hidden');
+      cmdInput.value='';
+      cmdInput.focus();
+    }
+    function closePalette(){ palette.classList.add('hidden'); }
+    document.addEventListener('keydown', e => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault(); openPalette();
+      } else if (e.key === 'Escape') { closePalette(); }
+    });
+    palette.addEventListener('click', e => { if(e.target===palette) closePalette(); });
+    document.querySelectorAll('.cmd-item').forEach(item => item.addEventListener('click', () => closePalette()));
+
+    const copyBtn = document.getElementById('copy-email');
+    const copyMsg = document.getElementById('copy-msg');
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText('email.rishabhp@gmail.com');
+        copyMsg.textContent = 'Email copied to clipboard';
+      } catch(err){
+        copyMsg.textContent = 'Failed to copy email';
+      }
+      setTimeout(()=>{copyMsg.textContent='';},2000);
     });
   </script>
 </body>
