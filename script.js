@@ -209,3 +209,16 @@ class ProjectCarousel {
 document.addEventListener('DOMContentLoaded', () => {
     const carousel = new ProjectCarousel();
 });
+
+// Progress Bar
+(function(){
+    const update = () => {
+      const h = document.documentElement;
+      const p = (h.scrollTop) / (h.scrollHeight - h.clientHeight) || 0;
+      h.style.setProperty('--scroll-progress', p);
+    };
+    addEventListener('scroll', update, {passive:true});
+    addEventListener('resize', update);
+    update();
+  })();
+  
