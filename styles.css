@@ -443,7 +443,12 @@ section {
 
 .about-content {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* centers vertically */
+    height: 100%; /* make sure the container has height */
 }
+
 
 .about-text {
     font-size: 18px;
