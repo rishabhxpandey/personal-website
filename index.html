@@ -1,432 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Rishabh - Software Engineer</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-
-    <!-- Devicon (icons) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
-
-    <!-- Site CSS -->
-    <link rel="stylesheet" href="styles.css"/>
-
-    <!-- Tiny helper styles for icon sizing/spacing (optional) -->
-    <style>
-      .skill-tags i, .skill-tags img, .project-header i { font-size: 22px; margin-right: 8px; vertical-align: middle; }
-      .skill-tags img { width: 22px; height: 22px; display: inline-block; }
-      .project-header i { font-size: 24px; }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rishabh Pandey — Production Engineer</title>
+  <meta name="description" content="Rishabh Pandey — Production Engineer at Meta. Reliability of large distributed systems: observability, capacity, and incident response.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='3' y='2' width='6' height='12' fill='%23C0532F'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=3">
+  <script>
+    // Apply saved theme before first paint to avoid a flash
+    try {
+      var t = localStorage.getItem('rp-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-        </ul>
+
+  <!-- ============ TOP BAR ============ -->
+  <header class="topbar">
+    <div class="breadcrumb"><span class="breadcrumb-host">rishabhxpandey.com</span> / <span class="breadcrumb-path" id="breadcrumb-path">README.md</span></div>
+    <nav class="topbar-links">
+      <a href="https://github.com/rishabhxpandey" target="_blank" rel="noopener noreferrer">github ↗</a>
+      <a href="https://www.linkedin.com/in/pandey-rishabh/" target="_blank" rel="noopener noreferrer">linkedin ↗</a>
+      <a href="resume-rishabh.pdf" target="_blank" rel="noopener noreferrer">resume ↗</a>
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme">☾ dark</button>
+    </nav>
+  </header>
+
+  <div class="workspace">
+
+    <!-- ============ FILE TREE ============ -->
+    <nav class="tree" aria-label="Site sections">
+      <button class="tree-item" type="button" data-file="README.md"><span class="dot"></span><span>README.md</span></button>
+      <button class="tree-item" type="button" data-file="skills.yaml"><span class="dot"></span><span>skills.yaml</span></button>
+      <div class="tree-dir">experience/</div>
+      <button class="tree-item nested" type="button" data-file="experience/meta.md"><span class="dot"></span><span>meta.md</span></button>
+      <button class="tree-item nested" type="button" data-file="experience/geico.md"><span class="dot"></span><span>geico.md</span></button>
+      <button class="tree-item nested" type="button" data-file="experience/texas-instruments.md"><span class="dot"></span><span>texas-instruments.md</span></button>
+      <div class="tree-dir">projects/</div>
+      <button class="tree-item nested" type="button" data-file="projects/paste-service.md"><span class="dot"></span><span>paste-service.md</span></button>
+      <button class="tree-item nested" type="button" data-file="projects/interview-agent.md"><span class="dot"></span><span>interview-agent.md</span></button>
+      <button class="tree-item gap-top" type="button" data-file="history.log"><span class="dot"></span><span>history.log</span></button>
+      <button class="tree-item" type="button" data-file="contact.json"><span class="dot"></span><span>contact.json</span></button>
     </nav>
 
-    <div id="progress-bar" aria-hidden="true"></div>
+    <!-- ============ CONTENT PANE ============ -->
+    <main class="pane">
+      <div class="pane-inner">
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="status-badge">
-            <div class="status-dot"></div>
-            Available for opportunities!
-        </div>
-        
-        <h1>Rishabh Pandey</h1>
-        <p class="hero-subtitle">Software Engineer building scalable solutions for the web and AI. Currently crafting contact center technology at GEICO :)</p>
-        
-        <!-- Social Links -->
-        <div class="social-links">
-            <!-- (kept your SVGs) -->
-            <a href="https://github.com/rishabhxpandey" target="_blank" class="social-link" title="GitHub">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-            </a>
-            <a href="https://linkedin.com/in/pandey-rishabh" target="_blank" class="social-link" title="LinkedIn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-            </a>
-            <a href="mailto:email.rishabhp@gmail.com" class="social-link" title="Email">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.904.732-1.636 1.636-1.636h.832L12 10.77l9.532-6.95h.832c.904 0 1.636.732 1.636 1.637z"/>
-                </svg>
-            </a>
-            <a href="https://x.com/rishabhxpandey" target="_blank" class="social-link" title="X (Twitter)">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
-                </svg>
-            </a>
-        </div>
+        <!-- ===== README.md ===== -->
+        <section class="page" data-file="README.md">
+          <div class="cmd"><span class="cmd-user">rishabh@web</span>:<span class="cmd-dir">~</span>$ cat README.md</div>
 
-        <div class="cta-buttons">
-            <a href="#projects" class="btn btn-primary">View Projects</a>
-            <a href="resume-rishabh.pdf" class="btn btn-secondary" download>Download Resume</a>
-        </div>
-    </section>
+          <div class="frontmatter">
+            <div>---</div>
+            <div>name: <span class="fm-val">Rishabh Pandey</span></div>
+            <div>role: <span class="fm-val">Production Engineer @ Meta</span></div>
+            <div>education: <span class="fm-val">Purdue CS, Dec 2024</span></div>
+            <div>status: <span class="fm-accent">open to backend &amp; applied AI roles</span></div>
+            <div>---</div>
+          </div>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="section-header">
-            <h2 class="section-title">About Me</h2>
-            <p class="section-description">Passionate about building the future of technology</p>
-        </div>
-        
-        <div class="about-container">
-            <div class="about-content">
-                <div class="about-text">
-                    I'm a <span class="highlight">software engineer</span> with a passion for building 
-                    <span class="highlight">cloud-native services</span> and <span class="highlight">AI-driven applications</span>. 
-                    I graduated with a B.S. in Computer Science from <span class="highlight">Purdue University</span> in December 2024, and I love tackling 
-                    <span class="highlight">real-world problems</span> across industries and collaborating on impactful projects.
-                </div>
-                
-                <!-- <div class="education-badge">
-                    <span class="graduation-icon">🎓</span>
-                    Graduated December 2024 - Purdue University
-                </div> -->
+          <div class="stack-16">
+            <h1 class="hero-name">Rishabh Pandey</h1>
+            <p class="prose">I'm a production engineer at <strong>Meta</strong>, working on the reliability of large distributed systems — observability, capacity, and incident response on a database tier powering an ads platform. Before that: event pipelines and cloud infrastructure at Geico, and internships at Geico and Texas Instruments.</p>
+            <p class="prose">These days the problems that pull me in sit at the intersection of backend systems and applied AI — I've shipped LLM pipelines at Meta and agentic projects on the side, and I'm looking to go deeper on both.</p>
+          </div>
+
+          <div class="stack-12">
+            <div class="section-label">## start here</div>
+            <div class="start-links">
+              <a class="start-link" href="#experience/meta.md"><span>→</span><span>experience/meta.md</span><span class="start-note">what I do now</span></a>
+              <a class="start-link" href="#skills.yaml"><span>→</span><span>skills.yaml</span><span class="start-note">languages &amp; tooling</span></a>
+              <a class="start-link" href="#projects/paste-service.md"><span>→</span><span>projects/</span><span class="start-note">things I've built</span></a>
+              <a class="start-link" href="#contact.json"><span>→</span><span>contact.json</span><span class="start-note">get in touch</span></a>
             </div>
+          </div>
+        </section>
 
-            <div class="about-visual">
-                <div class="floating-elements">
-                    <div class="floating-icon">🚀</div>
-                    <div class="floating-icon">🚀</div>
-                    <div class="floating-icon">🚀</div>
-                    <div class="floating-icon">🚀</div>
-                </div>
+        <!-- ===== skills.yaml ===== -->
+        <section class="page" data-file="skills.yaml" hidden>
+          <div class="cmd"><span class="cmd-user">rishabh@web</span>:<span class="cmd-dir">~</span>$ cat skills.yaml</div>
 
-                <div class="profile-card">
-                    <div class="profile-avatar" style="border: none; box-shadow: none; background: none;">
-                        <img src="images/headshot.png" alt="Rishabh's Profile Photo" style="border-radius: 50%; border: none; box-shadow: 0 4px 24px rgba(0,0,0,0.15); background: none;">
-                    </div>
-                    <h3 class="profile-name">Rishabh</h3>
-                    <p class="profile-role">Software Engineer @ GEICO</p>
-                    
-                    <div class="quick-facts">
-                        <div class="fact-item">
-                            <div class="fact-icon">📍</div>
-                            <div class="fact-text">San Francisco, CA</div>
-                        </div>
-                        <div class="fact-item">
-                            <div class="fact-icon">💼</div>
-                            <div class="fact-text">~1 YOE</div>
-                        </div>
-                        <div class="fact-item">
-                            <div class="fact-icon">🎯</div>
-                            <div class="fact-text">AI & Cloud</div>
-                        </div>
-                        <div class="fact-item">
-                            <div class="fact-icon">🌟</div>
-                            <div class="fact-text">Product-focused</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section (unchanged content) -->
-    <section id="experience">
-        <div class="section-header">
-            <h2 class="section-title">Experience</h2>
-            <p class="section-description">My journey building scalable solutions across different industries</p>
-        </div>
-        
-        <div class="experience-timeline">
-            <div class="timeline-line"></div>
-            
-            <div class="experience-item">
-                <div class="experience-content">
-                    <div class="experience-card">
-                        <div class="company-header">
-                            <div class="company-logo geico-logo" style="background: #fff;">
-                                <img src="images/geico.webp" alt="GEICO Logo" style="width: 90%; height: 100%; object-fit: contain;">
-                            </div>
-                            <div class="role-info">
-                                <h3>Software Engineer I</h3>
-                            </div>
-                        </div>
-                        <div class="duration">Jan 2025 - Present</div>
-                        <ul class="achievements">
-                            <li>Building scalable contact center tech on AWS</li>
-                            <li>Built Python AWS Lambda services to normalize contact events, batch-write to DynamoDB with QLDB backend—processing ~300-500 events/min</li>
-                            <li>Shipped Amazon Connect queue observability streaming ~800-900 queues, cutting runtime ~12% in ~10s and adding a Redis cache layer</li>
-                            <li>Refactored Terraform modules with least-privilege IAM and standardized shared OLAP, CI/CD, and structured logging</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-content">
-                    <div class="experience-card">
-                        <div class="company-header">
-                            <div class="company-logo geico-logo" style="background: #fff;">
-                                <img src="images/geico.webp" alt="GEICO Logo" style="width: 90%; height: 100%; object-fit: contain;">
-                            </div>
-                            <div class="role-info">
-                                <h3>Software Development Intern</h3>
-                                <div class="company-name">GEICO</div>
-                            </div>
-                        </div>
-                        <div class="duration">Jun 2024 - Aug 2024</div>
-                        <ul class="achievements">
-                            <li>Deployed JupyterHub on Azure Kubernetes Service with Spark + ADLS integration, cutting Snowflake costs by ~25%.</li>
-                            <li>Built custom Jupyter shortcuts to streamline data access for 100+ users.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-content">
-                    <div class="experience-card">
-                        <div class="company-header">
-                            <div class="company-logo ti-logo" style="background: #fff;">
-                                <img src="images/AGRO.svg" alt="TI Logo" style="width: 90%; height: 90%; object-fit: contain;">
-                            </div>
-                            <div class="role-info">
-                                <h3>AI/Software Intern</h3>
-                                <div class="company-name">Agrofocal Technologies</div>
-                            </div>
-                        </div>
-                        <div class="duration">Aug 2023 - Dec 2023</div>
-                        <ul class="achievements">
-                            <li>Conducted error analysis of 1000s images for TensorRT models and improved yield predictions using Numpy, Matplotlib, and Scikit-Learn.</li>
-                            <li>Created automation scripts using OpenCV and Tkinter for efficient manual annotation.</li>
-                        </ul>
-                    </div>
-                </div>
-                
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-content">
-                    <div class="experience-card">
-                        <div class="company-header">
-                            <div class="company-logo ti-logo" style="background: #fff;">
-                                <img src="images/TI.webp" alt="TI Logo" style="width: 90%; height: 90%; object-fit: contain;">
-                            </div>
-                            <div class="role-info">
-                                <h3>Software Engineering Intern</h3>
-                                <div class="company-name">Texas Instruments</div>
-                            </div>
-                        </div>
-                        <div class="duration">May 2023 - Aug 2023</div>
-                        <ul class="achievements">
-                            <li>Created an Oracle application for managing licenses across 250+ products.</li>
-                            <li>Integrated 10Duke REST API to reduce customer data lookup from hours to seconds.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Projects Section (replaced emojis with Devicon) -->
-    <section id="projects">
-        <div class="section-header">
-            <h2 class="section-title">Projects</h2>
-            <p class="section-description">Building innovative solutions with modern technologies</p>
-        </div>
-        
-        <div class="projects-carousel">
-            <button class="carousel-btn carousel-btn-prev" aria-label="Previous project">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="15,18 9,12 15,6"></polyline>
-                </svg>
-            </button>
-
-            <div class="projects-container">
-                <div class="projects-track">
-                    <div class="project-card active">
-                        <div class="project-header">
-                            <i class="devicon-linkedin-plain colored"></i>
-                            <div class="project-type">AI • Web</div>
-                        </div>
-                        
-                        <h3 class="project-title">LinkedIn Interview Agent</h3>
-                        <p class="project-description">
-                            Agentic interview platform: Job description parser, resume scorer (BERT + TF-IDF), 
-                            conversation tree manager (FAISS), adaptive question generation, and 
-                            structured tagging for latency and cost optimization.
-                        </p>
-                        
-                        <div class="project-tech">
-                            <strong>Tech Stack:</strong>
-                            <span>FastAPI, React, GPT-4, FAISS, scikit-learn</span>
-                        </div>
-                        
-                        <div class="project-links">
-                            <a href="https://github.com/rishabhxpandey/lnkd_apb" class="project-link" target="_blank" rel="noopener noreferrer">GitHub</a>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <i class="devicon-amazonwebservices-plain" title="AWS"></i>
-                            <div class="project-type">Cloud • Backend</div>
-                        </div>
-                        
-                        <h3 class="project-title">AWS Contact Center Analytics</h3>
-                        <p class="project-description">
-                            Scalable contact center solution: Real-time queue metrics, agent performance tracking, 
-                            automated alerts system with EventBridge, and DynamoDB data aggregation 
-                            for comprehensive analytics and reporting.
-                        </p>
-                        
-                        <div class="project-tech">
-                            <strong>Tech Stack:</strong>
-                            <span>AWS Lambda, DynamoDB, EventBridge, Node.js, Terraform</span>
-                        </div>
-                        
-                        <div class="project-links">
-                            <a href="#" class="project-link">View Project</a>
-                            <a href="#" class="project-link">GitHub</a>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <i class="devicon-scikitlearn-plain" title="scikit-learn"></i>
-                            <div class="project-type">Data • ML</div>
-                        </div>
-                        
-                        <h3 class="project-title">Insurance Coverage Extractor</h3>
-                        <p class="project-description">
-                            AI-powered document processing: OCR for driver's license extraction, 
-                            coverage limits mapping with vector similarity search, 
-                            and LLM-based data structuring for automated insurance workflows.
-                        </p>
-                        
-                        <div class="project-tech">
-                            <strong>Tech Stack:</strong>
-                            <span>Python, Streamlit, OpenAI, FAISS, OCR, Pandas</span>
-                        </div>
-                        
-                        <div class="project-links">
-                            <a href="#" class="project-link">View Project</a>
-                            <a href="#" class="project-link">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <button class="carousel-btn carousel-btn-next" aria-label="Next project">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="9,18 15,12 9,6"></polyline>
-                </svg>
-            </button>
-
-            <div class="carousel-dots">
-                <button class="carousel-dot active" data-slide="0" aria-label="Go to project 1"></button>
-                <button class="carousel-dot" data-slide="1" aria-label="Go to project 2"></button>
-                <button class="carousel-dot" data-slide="2" aria-label="Go to project 3"></button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills (Devicon everywhere + Snowflake fallback) -->
-    <section id="skills">
-        <div class="section-header">
-          <h2 class="section-title">Skills</h2>
-          <p class="section-description">Technologies and tools I work with</p>
-        </div>
-      
-        <div class="skills-container">
-          <div class="skills-grid">
-      
-            <!-- Programming Languages -->
-            <div class="skill-category">
-              <div class="skill-header">
-                <i class="devicon-codepen-plain" style="font-size:24px;"></i>
-                <h3>Programming Languages</h3>
-              </div>
-              <div class="skill-tags">
-                <i class="devicon-python-plain colored" title="Python"></i>
-                <i class="devicon-java-plain colored" title="Java"></i>
-                <i class="devicon-mysql-plain colored" title="SQL"></i>
-                <i class="devicon-cplusplus-plain colored" title="C/C++"></i>
-                <i class="devicon-go-plain colored" title="Go (familiar)"></i>
-                <i class="devicon-nodejs-plain colored" title="Node.js (familiar)"></i>
-                <i class="devicon-typescript-plain colored" title="TypeScript (familiar)"></i>
+          <div class="skills">
+            <div class="skill-group">
+              <div class="skill-key">languages:</div>
+              <div class="chips">
+                <span class="chip"><img src="https://cdn.simpleicons.org/python/7E8076" width="14" height="14" alt="" loading="lazy">python</span>
+                <span class="chip"><img src="https://cdn.simpleicons.org/go/7E8076" width="14" height="14" alt="" loading="lazy">go</span>
+                <span class="chip"><img src="https://cdn.simpleicons.org/typescript/7E8076" width="14" height="14" alt="" loading="lazy">typescript</span>
+                <span class="chip"><img src="https://cdn.simpleicons.org/nodedotjs/7E8076" width="14" height="14" alt="" loading="lazy">node</span>
+                <span class="chip"><img src="https://cdn.simpleicons.org/openjdk/7E8076" width="14" height="14" alt="" loading="lazy">java</span>
+                <span class="chip"><img src="https://cdn.simpleicons.org/cplusplus/7E8076" width="14" height="14" alt="" loading="lazy">c/c++</span>
+                <span class="chip">sql</span>
+                <span class="chip">hack</span>
               </div>
             </div>
-      
-            <!-- Cloud & Infrastructure -->
-            <div class="skill-category">
-              <div class="skill-header">
-                <i class="devicon-googlecloud-plain colored" style="font-size:24px;"></i>
-                <h3>Cloud & Infrastructure</h3>
-              </div>
-              <div class="skill-tags">
-                <i class="devicon-amazonwebservices-plain colored" title="AWS (Developer Associate)"></i>
-                <i class="devicon-azure-plain colored" title="Azure"></i>
-                <i class="devicon-googlecloud-plain colored" title="Google Cloud"></i>
-                <i class="devicon-docker-plain colored" title="Docker"></i>
-                <i class="devicon-kubernetes-plain colored" title="Kubernetes"></i>
-                <i class="devicon-terraform-plain colored" title="Terraform"></i>
-                <i class="devicon-azuredevops-plain colored" title="Azure DevOps"></i>
-                <i class="devicon-githubactions-plain colored" title="GitHub Actions"></i>
+            <div class="skill-group">
+              <div class="skill-key">infra:</div>
+              <div class="chips">
+                <span class="chip"><img src="https://cdn.simpleicons.org/docker/7E8076" width="14" height="14" alt="" loading="lazy">docker</span>
+                <span class="chip"><img src="https://cdn.simpleicons.org/kubernetes/7E8076" width="14" height="14" alt="" loading="lazy">kubernetes</span>
+                <span class="chip"><img src="https://cdn.simpleicons.org/helm/7E8076" width="14" height="14" alt="" loading="lazy">helm</span>
+                <span class="chip"><img src="https://cdn.simpleicons.org/terraform/7E8076" width="14" height="14" alt="" loading="lazy">terraform</span>
+                <span class="chip"><img src="https://cdn.simpleicons.org/githubactions/7E8076" width="14" height="14" alt="" loading="lazy">github-actions</span>
+                <span class="chip"><img src="https://cdn.simpleicons.org/linux/7E8076" width="14" height="14" alt="" loading="lazy">unix/linux</span>
               </div>
             </div>
-      
-            <!-- Databases & Storage -->
-            <div class="skill-category">
-              <div class="skill-header">
-                <i class="devicon-azuresqldatabase-plain colored" style="font-size:24px;"></i>
-                <h3>Databases & Storage</h3>
-              </div>
-              <div class="skill-tags">
-                <i class="devicon-postgresql-plain colored" title="PostgreSQL"></i>
-                <i class="devicon-mysql-plain colored" title="MySQL"></i>
-                <i class="devicon-amazonwebservices-plain colored" title="DynamoDB"></i>
-                <i class="devicon-redis-plain colored" title="Redis"></i>
-                <i class="devicon-azure-plain colored" title="ADLS"></i>
-                <i class="devicon-dynamodb-plain colored"></i>
+            <div class="skill-group">
+              <div class="skill-key">cloud:</div>
+              <div class="chips">
+                <span class="chip">aws <span class="chip-note">— developer associate</span></span>
+                <span class="chip">azure</span>
+                <span class="chip"><img src="https://cdn.simpleicons.org/googlecloud/7E8076" width="14" height="14" alt="" loading="lazy">gcp</span>
               </div>
             </div>
-      
-            <!-- AI & Development -->
-            <div class="skill-category">
-              <div class="skill-header">
-                <i class="devicon-opencv-plain colored" style="font-size:24px;"></i>
-                <h3>AI & Development</h3>
-              </div>
-              <div class="skill-tags">
-                <i class="devicon-fastapi-plain colored" title="FastAPI"></i>
-                <i class="devicon-react-original colored" title="React"></i>
-                <!-- <i class="devicon-openai-plain colored" title="OpenAI API"></i> -->
-                <i class="devicon-scikitlearn-plain colored" title="scikit-learn"></i>
-                <i class="devicon-git-plain colored" title="Git"></i>
-                <i class="devicon-linux-plain" title="Unix/Linux"></i>
-                <i class="devicon-python-plain colored" title="PyTest"></i>
+            <div class="skill-group">
+              <div class="skill-key">ai_mlops:</div>
+              <div class="chips">
+                <span class="chip"><img src="https://cdn.simpleicons.org/fastapi/7E8076" width="14" height="14" alt="" loading="lazy">fastapi</span>
+                <span class="chip"><img src="https://cdn.simpleicons.org/langchain/7E8076" width="14" height="14" alt="" loading="lazy">langchain</span>
+                <span class="chip"><img src="https://cdn.simpleicons.org/scikitlearn/7E8076" width="14" height="14" alt="" loading="lazy">scikit-learn</span>
+                <span class="chip">vector search</span>
+                <span class="chip">eval / benchmarking</span>
               </div>
             </div>
-      
+          </div>
+        </section>
+
+        <!-- ===== experience/meta.md ===== -->
+        <section class="page" data-file="experience/meta.md" hidden>
+          <div class="cmd"><span class="cmd-user">rishabh@web</span>:<span class="cmd-dir">~</span>$ cat experience/meta.md</div>
+          <div class="stack-8">
+            <div class="entry-head">
+              <h2 class="entry-title">Meta — Production Engineer</h2>
+              <div class="entry-dates">Sep 2025 — present</div>
+            </div>
+            <p class="entry-sub">Reliability of a distributed database tier powering an ads platform.</p>
+          </div>
+          <div class="bullets">
+            <p class="prose-sm">Owned the investigation that root-caused recurring database-throttling SEVs (~5–6 per half, ~30–40 unactioned alerts) to cross-team callers reusing shared functions and exhausting the owning team's QPS budget.</p>
+            <p class="prose-sm">Instrumented per-callsite QPS observability via 70%/90% threshold detectors and method-signature attribution; designed and drove a callsite-forking remediation that segments ownership and isolates traffic per caller.</p>
+            <p class="prose-sm">Built an applied ML pipeline on Llama 3.3 — structured summarization, embeddings, cosine-similarity clustering — grouping 8,000+ SEV follow-up tasks into actionable clusters for batch resolution.</p>
+            <p class="prose-sm">Executed a subdomain migration to a dedicated tenant for a platform serving thousands of DAU; cut p95 latency <strong>57%</strong> and shrank the fault-isolation domain.</p>
+          </div>
+          <a class="next-link" href="#experience/geico.md">→ next: experience/geico.md</a>
+        </section>
+
+        <!-- ===== experience/geico.md ===== -->
+        <section class="page" data-file="experience/geico.md" hidden>
+          <div class="cmd"><span class="cmd-user">rishabh@web</span>:<span class="cmd-dir">~</span>$ cat experience/geico.md</div>
+          <div class="stack-8">
+            <div class="entry-head">
+              <h2 class="entry-title">Geico — Software Engineer</h2>
+              <div class="entry-dates">Jan — Sep 2025</div>
+            </div>
+            <p class="entry-sub">Serverless event pipelines and contact-center observability on AWS.</p>
+          </div>
+          <div class="bullets">
+            <p class="prose-sm">Authored Python Lambda services that normalize contact events, batch-write to DynamoDB, and fan out via EventBridge with DLQs and exponential backoff — <strong>500–700K events/day</strong> at ~90% test coverage on least-privilege Terraform modules.</p>
+            <p class="prose-sm">Rolled out Amazon Connect queue observability across 800+ queues with SNS + Slack alerting; cut batch metrics latency <strong>12×</strong> (120 s → 10 s) via request coalescing and concurrent SDK fan-out.</p>
+          </div>
+          <div class="stack-8 sub-entry">
+            <div class="entry-head">
+              <h3 class="entry-title-sm">Software Engineering Intern</h3>
+              <div class="entry-dates">Summer 2024</div>
+            </div>
+          </div>
+          <div class="bullets">
+            <p class="prose-sm">Deployed JupyterHub on Azure Kubernetes Service with Azure AD SSO/RBAC and Spark/ADLS connectivity; the lake-first analytics workflow contributed to a ~25% reduction in team Snowflake spend.</p>
+          </div>
+          <a class="next-link" href="#experience/texas-instruments.md">→ next: experience/texas-instruments.md</a>
+        </section>
+
+        <!-- ===== experience/texas-instruments.md ===== -->
+        <section class="page" data-file="experience/texas-instruments.md" hidden>
+          <div class="cmd"><span class="cmd-user">rishabh@web</span>:<span class="cmd-dir">~</span>$ cat experience/texas-instruments.md</div>
+          <div class="stack-8">
+            <div class="entry-head">
+              <h2 class="entry-title">Texas Instruments — SWE Intern</h2>
+              <div class="entry-dates">Summer 2023</div>
+            </div>
+            <p class="entry-sub">Internal tooling for licensing operations.</p>
+          </div>
+          <div class="bullets">
+            <p class="prose-sm">Engineered an Oracle APEX + PL/SQL internal tool that replaced a 4–6 hour manual lookup with a ~5-second self-serve flow, used daily by licensing ops across 250+ products.</p>
+          </div>
+          <a class="next-link" href="#projects/paste-service.md">→ next: projects/paste-service.md</a>
+        </section>
+
+        <!-- ===== projects/paste-service.md ===== -->
+        <section class="page" data-file="projects/paste-service.md" hidden>
+          <div class="cmd"><span class="cmd-user">rishabh@web</span>:<span class="cmd-dir">~</span>$ cat projects/paste-service.md</div>
+          <div class="stack-8">
+            <div class="entry-head">
+              <h2 class="entry-title">Local Paste Service</h2>
+              <a class="repo-link" href="https://github.com/rishabhxpandey" target="_blank" rel="noopener noreferrer">repo ↗</a>
+            </div>
+            <div class="chips chips-row">
+              <span class="chip chip-sm"><img src="https://cdn.simpleicons.org/go/7E8076" width="13" height="13" alt="" loading="lazy">go</span>
+              <span class="chip chip-sm"><img src="https://cdn.simpleicons.org/sqlite/7E8076" width="13" height="13" alt="" loading="lazy">sqlite</span>
+              <span class="chip chip-sm">launchd</span>
+            </div>
+          </div>
+          <p class="prose-sm project-desc">A zero-dependency pastebin that lives entirely on your machine — a single 20 MB Go binary backed by SQLite in WAL mode for concurrent local storage. CLI-first workflow, automatic TTL expiration via a background garbage collector.</p>
+          <a class="next-link" href="#projects/interview-agent.md">→ next: projects/interview-agent.md</a>
+        </section>
+
+        <!-- ===== projects/interview-agent.md ===== -->
+        <section class="page" data-file="projects/interview-agent.md" hidden>
+          <div class="cmd"><span class="cmd-user">rishabh@web</span>:<span class="cmd-dir">~</span>$ cat projects/interview-agent.md</div>
+          <div class="stack-8">
+            <div class="entry-head">
+              <h2 class="entry-title">LinkedIn Interview Agent</h2>
+              <a class="repo-link" href="https://github.com/rishabhxpandey/lnkd_apb" target="_blank" rel="noopener noreferrer">repo ↗</a>
+            </div>
+            <div class="chips chips-row">
+              <span class="chip chip-sm"><img src="https://cdn.simpleicons.org/fastapi/7E8076" width="13" height="13" alt="" loading="lazy">fastapi</span>
+              <span class="chip chip-sm"><img src="https://cdn.simpleicons.org/react/7E8076" width="13" height="13" alt="" loading="lazy">react</span>
+              <span class="chip chip-sm">gpt-4o</span>
+              <span class="chip chip-sm">faiss</span>
+            </div>
+          </div>
+          <p class="prose-sm project-desc">An agentic RAG interview platform: ingests a job description and resume, maps skills semantically with FAISS, and generates adaptive questions conditioned on the candidate's gaps. Instrumented end to end — p50/p95 latency and $/session tracking, with question generation at ~2 s p95.</p>
+          <a class="next-link" href="#contact.json">→ next: contact.json</a>
+        </section>
+
+        <!-- ===== history.log ===== -->
+        <section class="page" data-file="history.log" hidden>
+          <div class="cmd"><span class="cmd-user">rishabh@web</span>:<span class="cmd-dir">~</span>$ git log --oneline -- career</div>
+          <div class="gitlog">
+            <div class="commit"><span class="hash">a3f9c21</span> <span class="decorate">(HEAD -&gt; main)</span> feat(meta): root-cause recurring db-throttling sevs to cross-team qps exhaustion</div>
+            <div class="commit"><span class="hash">e8d04b7</span> feat(meta): per-callsite qps detectors + callsite-forking remediation</div>
+            <div class="commit"><span class="hash">5c19f3e</span> feat(meta): llama-3.3 pipeline clusters 8,000+ sev follow-ups for batch resolution</div>
+            <div class="commit"><span class="hash">9b72a4d</span> perf(meta): tenant migration cuts p95 latency 57%</div>
+            <div class="commit"><span class="hash">f4c8e21</span> feat(geico): serverless event pipeline, 500–700k events/day at ~90% coverage</div>
+            <div class="commit"><span class="hash">d2c7b90</span> perf(geico): batch metrics latency 120s → 10s (12×)</div>
+            <div class="commit"><span class="hash">7a3d5e8</span> feat(geico): jupyterhub on aks with azure ad sso/rbac</div>
+            <div class="commit"><span class="hash">1e9f6c2</span> feat(ti): 4–6h licensing lookup → ~5s self-serve flow</div>
+            <div class="commit"><span class="hash">8c4b7d1</span> docs(purdue): b.s. computer science, dec 2024</div>
+            <div class="commit"><span class="hash">0000000</span> init: hello, world</div>
+          </div>
+          <p class="prose-sm contact-note">Full detail lives in the individual files — <code class="inline-path">experience/</code> and <code class="inline-path">projects/</code> in the tree.</p>
+        </section>
+
+        <!-- ===== contact.json ===== -->
+        <section class="page" data-file="contact.json" hidden>
+          <div class="cmd"><span class="cmd-user">rishabh@web</span>:<span class="cmd-dir">~</span>$ cat contact.json</div>
+          <div class="json-block">
+            <div>{</div>
+            <div class="json-row">"email": <a id="email-link" href="#contact.json">""</a>,</div>
+            <div class="json-row">"github": <a href="https://github.com/rishabhxpandey" target="_blank" rel="noopener noreferrer">"github.com/rishabhxpandey"</a>,</div>
+            <div class="json-row">"linkedin": <a href="https://www.linkedin.com/in/pandey-rishabh/" target="_blank" rel="noopener noreferrer">"linkedin.com/in/pandey-rishabh"</a>,</div>
+            <div class="json-row">"response_time": <span class="json-val">"usually &lt; 24h"</span></div>
+            <div>}</div>
+          </div>
+          <p class="prose-sm contact-note">Email is fastest. Happy to talk about production engineering, reliability, infra tooling — or anything you've found on this site.</p>
+        </section>
+
+        <!-- footer prompt: a real (tiny) terminal — type `help` -->
+        <div class="footer-prompt" id="terminal">
+          <div id="term-output" role="log" aria-live="polite"></div>
+          <div class="term-line">
+            <span><span class="cmd-user">rishabh@web</span>:<span class="cmd-dir">~</span>$</span>
+            <span id="term-typed"></span><span class="cursor" aria-hidden="true"></span>
+            <span class="term-hint" id="term-hint">type help</span>
+            <input id="term-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="terminal input">
           </div>
         </div>
-      </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Rishabh. All rights reserved.</p>
-    </footer>
+      </div>
+    </main>
+  </div>
 
-    <script src="script.js"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>

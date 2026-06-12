@@ -1,224 +1,305 @@
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
+// File-tree navigation, theme toggle, runtime-assembled email,
+// keyboard nav, and the footer terminal.
+
+(function () {
+  'use strict';
+
+  var FILES = [
+    'README.md',
+    'skills.yaml',
+    'experience/meta.md',
+    'experience/geico.md',
+    'experience/texas-instruments.md',
+    'projects/paste-service.md',
+    'projects/interview-agent.md',
+    'history.log',
+    'contact.json'
+  ];
+  var DIRS = { 'experience': true, 'projects': true };
+  var DEFAULT_FILE = FILES[0];
+
+  var pages = document.querySelectorAll('.page');
+  var treeItems = document.querySelectorAll('.tree-item');
+  var breadcrumb = document.getElementById('breadcrumb-path');
+  var pane = document.querySelector('.pane');
+
+  function currentFileFromHash() {
+    var f = decodeURIComponent(location.hash.replace(/^#/, ''));
+    return FILES.indexOf(f) !== -1 ? f : DEFAULT_FILE;
+  }
+
+  function render() {
+    var file = currentFileFromHash();
+    pages.forEach(function (p) {
+      p.hidden = p.dataset.file !== file;
     });
-});
-
-// Starfield parallax scroll effect
-let ticking = false;
-let lastScrollTop = 0;
-let scrollVelocity = 0;
-
-function updateStarfield() {
-    const scrolled = window.pageYOffset;
-    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollProgress = scrolled / maxScroll;
-    
-    // Calculate scroll velocity for motion blur effect
-    scrollVelocity = Math.abs(scrolled - lastScrollTop);
-    lastScrollTop = scrolled;
-    
-    // Add/remove fast scrolling class for motion blur
-    if (scrollVelocity > 20) {
-        document.body.classList.add('scrolling-fast');
-        setTimeout(() => {
-            document.body.classList.remove('scrolling-fast');
-        }, 150);
-    }
-    
-    // Speed up animations based on scroll velocity
-    const speedMultiplier = 1 + (scrollVelocity / 100);
-    
-    // Update animation speed based on scroll
-    document.documentElement.style.setProperty('--animation-speed', speedMultiplier);
-    
-    // Create scroll-based parallax effect that enhances the animations
-    const foregroundOffset = scrolled * 0.5;
-    const backgroundOffset = scrolled * 0.2;
-    
-    document.documentElement.style.setProperty('--scroll-offset-fast', foregroundOffset + 'px');
-    document.documentElement.style.setProperty('--scroll-offset-slow', backgroundOffset + 'px');
-    
-    ticking = false;
-}
-
-function requestTick() {
-    if (!ticking) {
-        requestAnimationFrame(updateStarfield);
-        ticking = true;
-    }
-}
-
-// Update active nav link on scroll and starfield effect
-window.addEventListener('scroll', () => {
-    // Navigation update
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('nav a');
-    
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (window.scrollY >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
-        }
+    treeItems.forEach(function (t) {
+      t.classList.toggle('active', t.dataset.file === file);
     });
+    breadcrumb.textContent = file;
+    document.title = file + ' — Rishabh Pandey';
+    pane.scrollTop = 0;
+    window.scrollTo(0, 0);
+  }
 
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
+  function navigate(file) {
+    if (file === currentFileFromHash()) render();
+    else location.hash = file;
+  }
+
+  treeItems.forEach(function (t) {
+    t.addEventListener('click', function () {
+      navigate(t.dataset.file);
     });
-    
-    // Starfield parallax effect
-    requestTick();
-});
+  });
 
-// Enhanced starfield effect on mouse movement for extra immersion
-document.addEventListener('mousemove', (e) => {
-    const mouseX = e.clientX / window.innerWidth;
-    const mouseY = e.clientY / window.innerHeight;
-    
-    // Subtle mouse-based parallax effect
-    document.documentElement.style.setProperty('--mouse-x', (mouseX - 0.5) * 20 + 'px');
-    document.documentElement.style.setProperty('--mouse-y', (mouseY - 0.5) * 20 + 'px');
-});
+  window.addEventListener('hashchange', render);
+  render();
 
-// Project Carousel Functionality
-class ProjectCarousel {
-    constructor() {
-        this.currentSlide = 0;
-        this.slides = document.querySelectorAll('.project-card');
-        this.totalSlides = this.slides.length;
-        this.track = document.querySelector('.projects-track');
-        this.prevBtn = document.querySelector('.carousel-btn-prev');
-        this.nextBtn = document.querySelector('.carousel-btn-next');
-        this.dots = document.querySelectorAll('.carousel-dot');
-        
-        // Ensure we have the required elements
-        if (!this.track || !this.prevBtn || !this.nextBtn) {
-            console.error('Carousel elements not found');
-            return;
+  // ===== Theme toggle — persists across visits =====
+  var toggle = document.getElementById('theme-toggle');
+
+  function isDark() {
+    return document.documentElement.dataset.theme === 'dark';
+  }
+
+  function setTheme(next) {
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem('rp-theme', next); } catch (e) {}
+    toggle.textContent = next === 'dark' ? '☼ light' : '☾ dark';
+  }
+
+  toggle.addEventListener('click', function () {
+    setTheme(isDark() ? 'light' : 'dark');
+  });
+
+  toggle.textContent = isDark() ? '☼ light' : '☾ dark';
+
+  // ===== Email assembled at runtime so scrapers (and Cloudflare-style
+  // rewriters) can't mangle it into "[email protected]". =====
+  var email = ['email', '.', 'rishabhp', '@', 'gmail', '.', 'com'].join('');
+  var emailLink = document.getElementById('email-link');
+  emailLink.textContent = '"' + email + '"';
+  emailLink.href = 'mailto:' + email;
+
+  // ===== Keyboard nav — j/k or arrows step through the file tree =====
+  window.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var tag = (e.target.tagName || '').toLowerCase();
+    if (tag === 'input' || tag === 'textarea' || e.target.isContentEditable) return;
+
+    var step = 0;
+    if (e.key === 'j' || e.key === 'ArrowDown') step = 1;
+    else if (e.key === 'k' || e.key === 'ArrowUp') step = -1;
+    else return;
+
+    e.preventDefault();
+    var idx = FILES.indexOf(currentFileFromHash());
+    var next = Math.min(FILES.length - 1, Math.max(0, idx + step));
+    navigate(FILES[next]);
+  });
+
+  // ===== Footer terminal =====
+  var terminal = document.getElementById('terminal');
+  var output = document.getElementById('term-output');
+  var typed = document.getElementById('term-typed');
+  var input = document.getElementById('term-input');
+  var hint = document.getElementById('term-hint');
+  var MAX_LINES = 80;
+
+  function promptHTML() {
+    return '<span class="cmd-user">rishabh@web</span>:<span class="cmd-dir">~</span>$ ';
+  }
+
+  function addLine(text, cls, html) {
+    var div = document.createElement('div');
+    div.className = cls || 'term-out';
+    if (html) div.innerHTML = html + escapeHTML(text);
+    else div.textContent = text;
+    output.appendChild(div);
+    while (output.children.length > MAX_LINES) output.removeChild(output.firstChild);
+  }
+
+  function escapeHTML(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function echoCommand(raw) {
+    addLine(raw, 'term-out', promptHTML());
+  }
+
+  function say(lines) {
+    (Array.isArray(lines) ? lines : [lines]).forEach(function (l) {
+      addLine(l, 'term-out');
+    });
+  }
+
+  function fail(line) {
+    addLine(line, 'term-err');
+  }
+
+  // Resolve "meta.md" or "experience/meta.md" to a known file
+  function resolveFile(name) {
+    name = name.replace(/^\.\//, '').replace(/\/$/, '');
+    if (FILES.indexOf(name) !== -1) return name;
+    var matches = FILES.filter(function (f) {
+      return f.split('/').pop() === name;
+    });
+    return matches.length === 1 ? matches[0] : null;
+  }
+
+  function lsOutput(arg) {
+    if (!arg) {
+      return ['README.md  skills.yaml  experience/  projects/  history.log  contact.json'];
+    }
+    var dir = arg.replace(/\/$/, '');
+    if (!DIRS[dir]) return null;
+    return [FILES.filter(function (f) { return f.indexOf(dir + '/') === 0; })
+      .map(function (f) { return f.split('/').pop(); }).join('  ')];
+  }
+
+  function run(raw) {
+    var line = raw.trim();
+    echoCommand(line);
+    if (!line) return;
+
+    var parts = line.split(/\s+/);
+    var cmd = parts[0].toLowerCase();
+    var arg = parts.slice(1).join(' ');
+
+    switch (cmd) {
+      case 'help':
+        say([
+          'help            this list',
+          'ls [dir]        list files',
+          'cat <file>      open a file',
+          'git log         career history',
+          'whoami          who am i',
+          'theme           toggle light/dark',
+          'clear           clear terminal',
+          'j / k           also work outside the prompt'
+        ]);
+        break;
+
+      case 'ls': {
+        var out = lsOutput(arg);
+        if (out) say(out);
+        else fail('ls: ' + arg + ': no such directory');
+        break;
+      }
+
+      case 'cat': {
+        if (!arg) { fail('cat: missing operand — try `cat README.md`'); break; }
+        if (DIRS[arg.replace(/\/$/, '')]) { fail('cat: ' + arg + ': is a directory'); break; }
+        var f = resolveFile(arg);
+        if (f) { say('opening ' + f + ' …'); navigate(f); }
+        else fail('cat: ' + arg + ': no such file');
+        break;
+      }
+
+      case 'git':
+        if (arg.indexOf('log') === 0) { say('opening history.log …'); navigate('history.log'); }
+        else fail("git: '" + (arg || '') + "' is not a git command here. try `git log`.");
+        break;
+
+      case 'whoami':
+        say('rishabh pandey — production engineer @ meta. purdue cs, dec 2024.');
+        break;
+
+      case 'pwd':
+        say('/home/rishabh');
+        break;
+
+      case 'theme':
+        setTheme(isDark() ? 'light' : 'dark');
+        say('theme set to ' + document.documentElement.dataset.theme);
+        break;
+
+      case 'clear':
+        output.innerHTML = '';
+        break;
+
+      case 'echo':
+        say(arg);
+        break;
+
+      case 'sudo':
+        if (/hire([ -]?me)?/.test(arg)) {
+          say('permission granted. opening contact.json …');
+          navigate('contact.json');
+        } else {
+          fail('sudo: ' + (arg || '') + ': permission denied (try `sudo hire-me`)');
         }
-        
-        this.init();
-    }
-    
-    init() {
-        // Add event listeners
-        this.prevBtn.addEventListener('click', () => this.prevSlide());
-        this.nextBtn.addEventListener('click', () => this.nextSlide());
-        
-        // Add dot navigation
-        this.dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => this.goToSlide(index));
-        });
-        
-        // Add keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') this.prevSlide();
-            if (e.key === 'ArrowRight') this.nextSlide();
-        });
-        
-        // Add touch/swipe support
-        let startX = 0;
-        let currentX = 0;
-        let isDragging = false;
-        
-        this.track.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-            isDragging = true;
-        });
-        
-        this.track.addEventListener('touchmove', (e) => {
-            if (!isDragging) return;
-            currentX = e.touches[0].clientX;
-            const diff = startX - currentX;
-            
-            // Prevent default scroll behavior when swiping horizontally
-            if (Math.abs(diff) > 10) {
-                e.preventDefault();
-            }
-        });
-        
-        this.track.addEventListener('touchend', (e) => {
-            if (!isDragging) return;
-            isDragging = false;
-            
-            const diff = startX - currentX;
-            
-            // Minimum swipe distance threshold
-            if (Math.abs(diff) > 50) {
-                if (diff > 0) {
-                    this.nextSlide();
-                } else {
-                    this.prevSlide();
-                }
-            }
-        });
-        
-        // Initialize carousel
-        this.updateCarousel();
-    }
-    
-    nextSlide() {
-        this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
-        this.updateCarousel();
-    }
-    
-    prevSlide() {
-        this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
-        this.updateCarousel();
-    }
-    
-    goToSlide(index) {
-        this.currentSlide = index;
-        this.updateCarousel();
-    }
-    
-    updateCarousel() {
-        // Move the track - each slide is 33.333% of track width
-        const translateX = -this.currentSlide * 33.333;
-        this.track.style.transform = `translateX(${translateX}%)`;
-        
-        // Update active states
-        this.slides.forEach((slide, index) => {
-            slide.classList.toggle('active', index === this.currentSlide);
-        });
-        
-        this.dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === this.currentSlide);
-        });
-        
-        // Enable infinite scrolling by not disabling buttons
-        this.prevBtn.disabled = false;
-        this.nextBtn.disabled = false;
-    }
-}
+        break;
 
-// Initialize carousel when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    const carousel = new ProjectCarousel();
-});
+      case 'rm':
+        fail('rm: permission denied — this portfolio is write-protected');
+        break;
 
-// Progress Bar
-(function(){
-    const update = () => {
-      const h = document.documentElement;
-      const p = (h.scrollTop) / (h.scrollHeight - h.clientHeight) || 0;
-      h.style.setProperty('--scroll-progress', p);
-    };
-    addEventListener('scroll', update, {passive:true});
-    addEventListener('resize', update);
-    update();
-  })();
-  
+      case 'vim':
+      case 'nano':
+      case 'emacs':
+        say(cmd + ': no editors here. the files are read-only — try `cat`.');
+        break;
+
+      case 'exit':
+      case 'logout':
+        say('there is no escape. try `cat contact.json` instead.');
+        break;
+
+      default:
+        fail('command not found: ' + cmd + ' — try `help`');
+    }
+  }
+
+  function tabComplete() {
+    var val = input.value;
+    var m = val.match(/^(cat|ls)\s+(\S*)$/i);
+    var candidates, prefix, base;
+    if (m) {
+      base = m[1] + ' ';
+      prefix = m[2];
+      candidates = FILES.concat(['experience/', 'projects/']);
+    } else if (/^\S*$/.test(val)) {
+      base = '';
+      prefix = val;
+      candidates = ['help', 'ls', 'cat', 'git log', 'whoami', 'theme', 'clear'];
+    } else {
+      return;
+    }
+    var hits = candidates.filter(function (c) {
+      return prefix && c.indexOf(prefix) === 0;
+    });
+    if (hits.length === 1) {
+      input.value = base + hits[0];
+      syncTyped();
+    } else if (hits.length > 1) {
+      say(hits.join('  '));
+    }
+  }
+
+  function syncTyped() {
+    typed.textContent = input.value;
+    hint.style.display = input.value || output.children.length ? 'none' : '';
+  }
+
+  terminal.addEventListener('click', function () {
+    input.focus({ preventScroll: true });
+  });
+
+  input.addEventListener('input', syncTyped);
+
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+      run(input.value);
+      input.value = '';
+      syncTyped();
+      pane.scrollTop = pane.scrollHeight;
+    } else if (e.key === 'Tab') {
+      e.preventDefault();
+      tabComplete();
+    } else if (e.key === 'Escape') {
+      input.blur();
+    }
+  });
+})();
