@@ -343,6 +343,19 @@ body {
   white-space: nowrap;
 }
 
+.entry-meta {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12.5px;
+}
+
+.entry-team { color: var(--body); }
+
+.entry-sep { color: var(--muted); }
+
 .entry-sub {
   margin: 0;
   font-size: 14.5px;
