@@ -7,6 +7,7 @@
   var FILES = [
     'README.md',
     'skills.yaml',
+    'experience/moveworks.md',
     'experience/meta.md',
     'experience/geico.md',
     'experience/texas-instruments.md',
@@ -203,7 +204,7 @@
         break;
 
       case 'whoami':
-        say('rishabh pandey — production engineer @ meta. purdue cs, dec 2024.');
+        say('rishabh pandey — software engineer @ moveworks. purdue cs, dec 2024.');
         break;
 
       case 'pwd':
